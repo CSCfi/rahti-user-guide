@@ -10,6 +10,22 @@ command while logged in to the OpenShift environment.
   * [Kubernetes documentation](https://kubernetes.io/docs/home/)
   * [OpenShift documentation](https://docs.openshift.org/)
 
+You could also have a look at "Awesome Kubernetes" which is a curated list of
+links about Kubernetes:
+
+  * [Awesome Kubernetes](https://ramitsurana.github.io/awesome-kubernetes/)
+
+# Docker
+
+Knowing how to use Docker is also important when using container platforms:
+
+  * [Docker documentation](https://docs.docker.com/)
+
+There is also a curated list of links about Docker called "Awesome Docker" that
+you may find interesting for gaining deeper knowledge about Docker:
+
+  * [Awesome Docker](https://veggiemonk.github.io/awesome-docker/)
+
 # Blogs
 
 You can find usage examples and announcements from the OpenShift and the

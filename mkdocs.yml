@@ -2,7 +2,9 @@ site_name: Rahti user guide
 pages:
   - Home: index.md
   - Introduction:
-    - About: introduction/about.md
+    - Background: introduction/background.md
     - Getting access: introduction/access.md
+  - Usage:
+    - Getting started: usage/getting_started.md
   - External documentation: ext_docs.md
 theme: readthedocs
