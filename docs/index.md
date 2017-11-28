@@ -1,4 +1,4 @@
-# Rahti user guide
+## Rahti user guide
 
 Welcome to the Rahti user guide! If you are not yet familiar with container
 technology or container orchestration systems such as Kubernetes or OpenShift,

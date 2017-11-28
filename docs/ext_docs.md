@@ -1,4 +1,4 @@
-# Platform documentation
+## Platform documentation
 
 Both the OpenShift and the Kubernetes projects maintain extensive user
 documentation. When looking at documentation, you should keep in mind that the
@@ -15,7 +15,7 @@ links about Kubernetes:
 
   * [Awesome Kubernetes](https://ramitsurana.github.io/awesome-kubernetes/)
 
-# Docker
+## Docker
 
 Knowing how to use Docker is also important when using container platforms:
 
@@ -26,7 +26,7 @@ you may find interesting for gaining deeper knowledge about Docker:
 
   * [Awesome Docker](https://veggiemonk.github.io/awesome-docker/)
 
-# Blogs
+## Blogs
 
 You can find usage examples and announcements from the OpenShift and the
 Kubernetes blogs:

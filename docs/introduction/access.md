@@ -1,3 +1,3 @@
-# Getting a CSC user account
+## Getting a CSC user account
 
-# Getting a computing project
+## Getting a computing project

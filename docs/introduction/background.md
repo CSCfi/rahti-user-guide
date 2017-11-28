@@ -1,4 +1,8 @@
-# Containers
+**Topics:**
+
+[TOC]
+
+## Containers
 
 Containers are a technology that is based on operating system kernel features
 that allow the creation of isolated environments that all share the same kernel.
@@ -60,7 +64,7 @@ idea about what using containers is like from the user's perspective. For more
 complete documentation about Docker, see the
 [official Docker documentation](https://docs.docker.com/).
 
-# Container orchestration
+## Container orchestration
 
 To understand why container orchestration platforms are important, let's
 describe how a typical web based application that end users access via a web

@@ -8,3 +8,5 @@ pages:
     - Getting started: usage/getting_started.md
   - External documentation: ext_docs.md
 theme: readthedocs
+extra_css:
+  - css/extra.css
