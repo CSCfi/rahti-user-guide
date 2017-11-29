@@ -16,3 +16,7 @@ documentation and the links to external documentation:
 
   * [Usage](usage/getting_started)
   * [External documentation](ext_docs)
+
+Want to get in touch? See the contact page:
+
+  * [Contact](contact)

@@ -26,6 +26,23 @@ you may find interesting for gaining deeper knowledge about Docker:
 
   * [Awesome Docker](https://veggiemonk.github.io/awesome-docker/)
 
+## Tutorials and courses
+
+There are many tutorials and online courses available for OpenShift and
+Kubernetes. Here is a list of some of them:
+
+  * [OpenShift: Interactive Learning Portal](https://learn.openshift.com/)
+  * [Udacity: Scalable Microservices with
+    Kubernetes](https://www.udacity.com/course/scalable-microservices-with-kubernetes--ud615)
+  * [edX: Introduction to
+    Kubernetes](https://www.edx.org/course/introduction-kubernetes-linuxfoundationx-lfs158x)
+
+You may also find the material and the exercises of the CSC container course
+helpful:
+
+  * [CSC container course
+    material](https://github.com/Digipalvelutehdas/container-course-material)
+
 ## Blogs
 
 You can find usage examples and announcements from the OpenShift and the

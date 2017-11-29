@@ -3,10 +3,15 @@ pages:
   - Home: index.md
   - Introduction:
     - Background: introduction/background.md
+    - Technical maturity: introduction/technical_maturity.md
     - Getting access: introduction/access.md
   - Usage:
     - Getting started: usage/getting_started.md
+    - Command line tool usage: usage/cli.md
+  - Contact: contact.md
   - External documentation: ext_docs.md
 theme: readthedocs
 extra_css:
   - css/extra.css
+markdown_extensions:
+  - attr_list
