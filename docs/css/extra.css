@@ -1,5 +1,6 @@
 li.toctree-l2,
-li.toctree-l3 {
+li.toctree-l3,
+a.toctree-l4 {
   display: none;
 }
 
