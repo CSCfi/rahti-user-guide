@@ -1,4 +1,4 @@
-site_name: Rahti user guide
+site_name: Rahti container cloud
 pages:
   - Home: index.md
   - Introduction:
@@ -13,5 +13,10 @@ pages:
 theme: readthedocs
 extra_css:
   - css/extra.css
+extra_javascript:
+  - https://use.fontawesome.com/e51b07f7f1.js
 markdown_extensions:
+  - admonition
   - attr_list
+  - md_environ.environ
+  - mdx_linkify

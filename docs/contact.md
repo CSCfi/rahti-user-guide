@@ -2,4 +2,4 @@
 
 The main support address for container clouds at CSC:
 
-[container-support@csc.fi](mailto:container-support@csc.fi)
+[rahti-support@csc.fi](mailto:rahti-support@csc.fi)
