@@ -3,10 +3,10 @@
 !!! note
     Projects in OpenShift are separate from CSC computing projects. A single CSC
     computing project can have access to multiple projects in OpenShift.
-    Each CSC computing project with access to ${SYSTEM_NAME} gets a *group* in
+    Each CSC computing project with access to \env{SYSTEM_NAME} gets a *group* in
     OpenShift.
 
-You can login at ${PLATFORM_URL}:8443 with your
+You can login at \env{OSO_WEB_UI_URL} with your
 CSC account. After logging in, you should see a page like this:
 
 ![OpenShift main page](img/openshift_main_page.png)

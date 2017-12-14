@@ -1,0 +1,8 @@
+{% extends "base.html" %}
+
+{% block content %}
+{% if page.is_homepage %}
+{% include "system_links.html" %}
+{% endif %}
+{{ page.content }}
+{% endblock %}

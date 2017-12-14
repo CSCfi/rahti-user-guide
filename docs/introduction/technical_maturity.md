@@ -1,6 +1,6 @@
 ## Technical maturity
 
-The ${SYSTEM_NAME} container cloud is currently in **beta**. This page lists various
+The \env{SYSTEM_NAME} container cloud is currently in **beta**. This page lists various
 aspects of the technical maturity of the system to give you an idea of what
 kinds of workloads it is suitable for at the moment.
 

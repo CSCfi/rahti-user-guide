@@ -1,4 +1,4 @@
-site_name: Rahti container cloud
+site_name: {{ 'SYSTEM_NAME' | env }} container cloud
 pages:
   - Home: index.md
   - Introduction:
@@ -10,7 +10,9 @@ pages:
     - Command line tool usage: usage/cli.md
   - Contact: contact.md
   - External documentation: ext_docs.md
-theme: readthedocs
+theme:
+  name: readthedocs
+  custom_dir: theme_customization/
 extra_css:
   - css/extra.css
 extra_javascript:
@@ -18,5 +20,9 @@ extra_javascript:
 markdown_extensions:
   - admonition
   - attr_list
-  - md_environ.environ
   - mdx_linkify
+  - mdx_environment
+extra:
+  system_name: {{ 'SYSTEM_NAME' | env }}
+  oso_web_ui_url: {{ 'OSO_WEB_UI_URL' | env }}
+  oso_registry_url: {{ 'OSO_REGISTRY_URL' | env }}
