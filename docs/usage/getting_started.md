@@ -1,10 +1,12 @@
 ## Using the web interface
 
+\if{LDAP_LOGIN_SUPPORT}
 !!! note
     Projects in OpenShift are separate from CSC computing projects. A single CSC
     computing project can have access to multiple projects in OpenShift.
     Each CSC computing project with access to \env{SYSTEM_NAME} gets a *group* in
     OpenShift.
+\endif
 
 You can login at \env{OSO_WEB_UI_URL} with your
 CSC account. After logging in, you should see a page like this:
