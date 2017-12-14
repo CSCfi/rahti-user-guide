@@ -8,8 +8,8 @@
     OpenShift.
 \endif
 
-You can login at \env{OSO_WEB_UI_URL} with your
-CSC account. After logging in, you should see a page like this:
+You can login at \env{OSO_WEB_UI_URL} (see [Getting access](../introduction/access)
+for instructions). After logging in, you should see a page like this:
 
 ![OpenShift main page](img/openshift_main_page.png)
 
