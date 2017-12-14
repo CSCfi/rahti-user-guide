@@ -1,6 +1,10 @@
 ## Getting access to \env{SYSTEM_NAME}
 
-In order to use the \env{SYSTEM_NAME} container cloud, you will need:
+\if{LDAP_LOGIN_SUPPORT}
+### Login using CSC account
+
+In order to use the \env{SYSTEM_NAME} container cloud with a CSC account, you
+will need:
 
 1. A CSC user account
 2. A computing project with rights to use \env{SYSTEM_NAME}
@@ -13,6 +17,12 @@ You can get information about getting a new project on the [User Accounts and
 Projects](https://research.csc.fi/accounts-and-projects) page on the
 research.csc.fi web pages.
 
+Once you have a CSC user account and a computing project, you can send a message
+with the name of your computing project to
+[rahti-support@csc.fi](mailto:rahti-support@csc.fi) to apply for access.
+\endif
+
+\if{SUI_INTEGRATION_DONE}
 You can apply for \env{SYSTEM_NAME} access for a computing project in the
 Scientist's User Interface (SUI):
 
@@ -28,3 +38,13 @@ Scientist's User Interface (SUI):
 
 Please contact [rahti-support@csc.fi](mailto:rahti-support@csc.fi) in case you
 need assistance.
+\endif
+
+\if{GITLAB_LOGIN_SUPPORT}
+### Login using GitLab credentials
+
+1. Select "gitlab.csc.fi" from the list of login options on \env{OSO_WEB_UI_URL}
+2. If you were not already logged in to gitlab.csc.fi, click the "CSC SSO"
+   button and login with your Haka credentials
+3. If you are asked to authorize access, click "Authorize"
+\endif

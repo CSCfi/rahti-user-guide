@@ -17,11 +17,14 @@ documentation](http://www.mkdocs.org/#installation).
 Before building the site from the markdown sources, you will need to set some
 environment variables:
 
-| Variable         | Description                               |
-|------------------|-------------------------------------------|
-| SYSTEM_NAME      | The name of the OpenShift system.         |
-| OSO_WEB_UI_URL   | The URL of the OpenShift web UI.          |
-| OSO_REGISTRY_URL | The URL of the OpenShift registry web UI. |
+| Variable             | Description                                         |
+|----------------------|-----------------------------------------------------|
+| SYSTEM_NAME          | The name of the OpenShift system.                   |
+| OSO_WEB_UI_URL       | The URL of the OpenShift web UI.                    |
+| OSO_REGISTRY_URL     | The URL of the OpenShift registry web UI.           |
+| LDAP_LOGIN_SUPPORT   | Whether the system supports LDAP logins.            |
+| GITLAB_LOGIN_SUPPORT | Whether the system supports GitLab logins.          |
+| SUI_INTEGRATION_DONE | Whether it is possible to apply for access via SUI. |
 
 When these are set in the environment, you can create a config file for mkdocs:
 ```bash
@@ -64,5 +67,8 @@ sudo docker run -it -p 8000:8000 \
 -e SYSTEM_NAME=Rahti \
 -e OSO_WEB_UI_URL=https://rahti.csc.fi:8443 \
 -e OSO_REGISTRY_URL=https://registry-console.rahti.csc.fi \
+-e LDAP_LOGIN_SUPPORT=1 \
+-e GITLAB_LOGIN_SUPPORT=0 \
+-e SUI_INTEGRATION_DONE=1 \
 rahti-mkdocs-server
 ```
