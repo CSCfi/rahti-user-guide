@@ -2,3 +2,4 @@ mkdocs.yml
 site/
 *.swp
 *.swo
+.idea/
