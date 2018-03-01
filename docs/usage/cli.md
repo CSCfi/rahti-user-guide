@@ -10,13 +10,23 @@ The information for downloading the oc tool and logging in from the command line
 can be found in the "Command Line Tools" page in the web interface. After
 logging in to the web interface, you can find the page here:
 
+\if{OPENSHIFT_VERSION == 3.6}
 ![Command line tools](img/cli_help_menu.png)
+\endif
+\if{OPENSHIFT_VERSION == 3.7}
+![Command line tools](img/cli_help_menu_3.7.png)
+\endif
 
 The oc tool is a single binary that just needs to be placed in your path. You
 can find the oc command to login in one the fields on the page. There is a
 button next to it to copy the command to the clipboard:
 
+\if{OPENSHIFT_VERSION == 3.6}
 ![OpenShift Command Line Tools page](img/openshift_cli_dialog.png)
+\endif
+\if{OPENSHIFT_VERSION == 3.7}
+![OpenShift Command Line Tools page](img/openshift_cli_dialog_3.7.png)
+\endif
 
 Copy the command and paste it into a terminal to start using OpenShift via the
 command line.
