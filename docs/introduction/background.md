@@ -207,7 +207,7 @@ pods at all times.
 Pods are expendable. When they die, all the state that was stored in the pod's
 own filesystems is lost. Pods are also meant to die and be replaced as part of
 normal operations like a rolling update triggered by a deployment. Therefore
-storage that persists over a pods lifetime is needed. This is what the concept
+storage that persists over a pod's lifetime is needed. This is what the concept
 of **persistent volumes** is for.
 
 Persistent volumes are stored in some backing storage like Ceph, NFS or
