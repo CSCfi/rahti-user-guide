@@ -10,6 +10,6 @@ kinds of workloads it is suitable for at the moment.
 
 | Maturity indicator          | Current value                                       | Best feasible value                                              |
 |-----------------------------|-----------------------------------------------------|------------------------------------------------------------------|
-| **OpenShift version**       | {: class='td_ok'}\env{OPENSHIFT_VERSION}            | 3.7{: class='td_ok'}                                             |
+| **OpenShift version**       | {: class='td_ok'}\env{OPENSHIFT_VERSION}            | 3.9{: class='td_ok'}                                             |
 | **Service level**           | Best effort (no formal SLA){: class='td_warn'}      | JHS174 level B (99%, service times 7-19){: class='td_ok'}        |
 | **GlusterFS storage class** | Technical preview{: class='td_warn'}                | Technical preview{: class='td_warn'}                             |
