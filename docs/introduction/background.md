@@ -117,7 +117,7 @@ of the most important abstractions, but we highly recommend that you read the
 concept documentation for Kubernetes and OpenShift as well:
 
    * [Kubernetes concepts](https://kubernetes.io/docs/concepts/)
-   * [OpenShift concepts](https://docs.openshift.org/latest/architecture/core_concepts/index.html)
+   * [OpenShift concepts](https://docs.okd.io/latest/architecture/core_concepts/index.html)
 
 Most of the abstractions are common to both plain Kubernetes and OpenShift, but
 OpenShift also introduces some of its own concepts.
