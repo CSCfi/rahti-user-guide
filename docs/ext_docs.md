@@ -9,7 +9,7 @@ symbol in the top bar of the web interface and selecting "About" or with the `oc
 command line command while logged in to the OpenShift environment.
 
   * [Kubernetes documentation](https://kubernetes.io/docs/home/)
-  * [OpenShift documentation](https://docs.openshift.org/)
+  * [OpenShift documentation](https://docs.okd.io/)
 
 You could also have a look at "Awesome Kubernetes" which is a curated list of
 links about Kubernetes:

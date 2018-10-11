@@ -35,6 +35,6 @@ and you will see the application catalog where you can pick from various
 application templates or import your own.
 
 For more information about using the web user interface, you can refer to the
-[official OpenShift documentation](https://docs.openshift.org/). You can find
+[official OpenShift documentation](https://docs.okd.io/). You can find
 out which version of the documentation to look at in the web interface by
 clicking the question mark symbol in the top bar and selecting "About".

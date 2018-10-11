@@ -64,4 +64,4 @@ oc replace -f somefile.yaml
 See the official documentation for more information on using the command line
 interface:
 
-   * [OpenShift documentation: CLI reference](https://docs.openshift.org/latest/cli_reference/index.html)
+   * [OpenShift documentation: CLI reference](https://docs.okd.io/latest/cli_reference/index.html)
