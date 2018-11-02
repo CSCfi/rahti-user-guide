@@ -19,14 +19,16 @@ environment variables:
 
 | Variable             | Description                                         |
 |----------------------|-----------------------------------------------------|
-| SYSTEM_NAME          | The name of the OpenShift system.                   |
-| OSO_WEB_UI_URL       | The URL of the OpenShift web UI.                    |
-| OSO_REGISTRY_URL     | The URL of the OpenShift registry web UI.           |
-| LDAP_LOGIN_SUPPORT   | Whether the system supports LDAP logins.            |
 | GITLAB_LOGIN_SUPPORT | Whether the system supports GitLab logins.          |
+| LDAP_LOGIN_SUPPORT   | Whether the system supports LDAP logins.            |
+| OPENSHIFT_VERSION    | What version of OpenShift is in use.                |
+| OSO_REGISTRY_URL     | The URL of the OpenShift registry web UI.           |
+| OSO_WEB_UI_URL       | The URL of the OpenShift web UI.                    |
 | SUI_INTEGRATION_DONE | Whether it is possible to apply for access via SUI. |
+| SYSTEM_NAME          | The name of the OpenShift system.                   |
 
 When these are set in the environment, you can create a config file for mkdocs:
+
 ```bash
 ./make_config.sh
 ```
@@ -52,23 +54,50 @@ The documentation files themselves are under the docs directory.
 ## Using the included Dockerfile
 
 You can also create a Docker container to host the docs. First build an image
-from the included Dockerfile:
-
-```bash
-sudo docker build . -t rahti-mkdocs-server
-```
-
-Then run the container, making sure to set all the necessary environment
+from the included Dockerfile, making sure to set all the necessary environment
 variables. For example:
 
 ```bash
-sudo docker run -it -p 8000:8000 \
---name rahti-user-guide \
--e SYSTEM_NAME=Rahti \
--e OSO_WEB_UI_URL=https://rahti.csc.fi:8443 \
--e OSO_REGISTRY_URL=https://registry-console.rahti.csc.fi \
--e LDAP_LOGIN_SUPPORT=1 \
--e GITLAB_LOGIN_SUPPORT=0 \
--e SUI_INTEGRATION_DONE=1 \
-rahti-mkdocs-server
+sudo docker build -t rahti-user-guide \
+  --build-arg SYSTEM_NAME=Rahti \
+  --build-arg OSO_WEB_UI_URL=https://rahti.csc.fi:8443 \
+  --build-arg OSO_REGISTRY_URL=https://registry-console.rahti.csc.fi \
+  --build-arg LDAP_LOGIN_SUPPORT=1 \
+  --build-arg GITLAB_LOGIN_SUPPORT=0 \
+  --build-arg SUI_INTEGRATION_DONE=1 \
+  --build-arg OPENSHIFT_VERSION=3.9 .
 ```
+
+Then run the container:
+
+```bash
+sudo docker run --rm -it -p 8000:8000 --name rahti-user-guide rahti-user-guide
+```
+
+## Hosting on OpenShift
+
+The Dockerfile is also made to be compatible with OpenShift, so it should work
+with the source-to-image mechanism when using `oc new-app`. First create a new
+project to host the user guide:
+
+```bash
+oc new-project rahti-user-guide
+```
+
+Then run `oc new-app` to create the user guide deployment:
+
+```bash
+oc new-app \
+  --build-env SYSTEM_NAME=Rahti \
+  --build-env OSO_WEB_UI_URL=https://rahti.csc.fi:8443 \
+  --build-env OSO_REGISTRY_URL=https://registry-console.rahti.csc.fi \
+  --build-env LDAP_LOGIN_SUPPORT=1 \
+  --build-env GITLAB_LOGIN_SUPPORT=0 \
+  --build-env SUI_INTEGRATION_DONE=1 \
+  --build-env OPENSHIFT_VERSION=3.9 \
+  https://github.com/CSCfi/rahti-user-guide.git#master
+```
+
+In the command above, the `#master` at the end specifies the branch to use. If
+you have a feature branch that you would like to test on OpenShift, you can
+specify a branch different from master.
