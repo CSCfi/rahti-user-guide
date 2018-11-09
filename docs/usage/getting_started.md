@@ -11,22 +11,12 @@
 You can login at \env{OSO_WEB_UI_URL} (see [Getting access](../introduction/access)
 for instructions). After logging in, you should see a page like this:
 
-\if{OPENSHIFT_VERSION == 3.6}
-![OpenShift main page](img/openshift_main_page.png)
-\endif
-\if{OPENSHIFT_VERSION == 3.7}
 ![OpenShift main page](img/openshift_main_page_3.7.png)
-\endif
 
 Click the blue "Create Project" button to create a project and you will be
 presented with this view:
 
-\if{OPENSHIFT_VERSION == 3.6}
-![OpenShift new project dialog](img/new_project_dialog.png)
-\endif
-\if{OPENSHIFT_VERSION == 3.7}
 ![OpenShift new project dialog](img/new_project_dialog_3.7.png)
-\endif
 
 Here you'll need to pick a unique name that is not in use by any other project
 in the system. You can also enter a human readable display name and a
