@@ -1,4 +1,4 @@
-## Technical maturity
+# Technical maturity
 
 The \env{SYSTEM_NAME} container cloud is currently in **beta**. This page lists various
 aspects of the technical maturity of the system to give you an idea of what
@@ -30,21 +30,20 @@ We will describe the details of these areas here.
 
 The GlusterFS storage that is used for all persistent volumes in
 \env{SYSTEM_NAME} at the moment is only a technology preview according to Red
-Hat, and it has to do additional 2x replication on top of the 3x
-replication already done by Ceph. Thus we have 6x replication of all
-data, which is unnecessary and would be prohibitively expensive.
+Hat, and it has to do additional 2x replication on top of the 3x replication
+already done by Ceph. Thus we have 6x replication of all data, which is
+unnecessary and would be prohibitively expensive for a larger system.
 
-Before going into production, we want to have another storage class that could be
-based on either a direct connection to the Ceph system used in cPouta or one that
-uses Cinder storage from cPouta.
+Before going into production, we want to have another storage class that would
+not have these limitations and that we could scale up as the system grows.
 
-We've also seen some stability issues with the storage in heavy use, though
-not issues that would affect data consistency. GlusterFS will remain as
-an option for at least some time after a new storage system is in place,
-and there will be instructions for migrating data from the GlusterFS
-storage class to the final production ready storage class. We will still
-need some solution for RWX volumes when in production, and that solution
-may be the current GlusterFS installation.
+We've also seen some stability issues with the storage in heavy use, though not
+issues that would affect data consistency. GlusterFS will remain as an option
+for at least some time after a new storage system is in place, and there will be
+instructions for migrating data from the GlusterFS storage class to the final
+production ready storage class. We will still need some solution for
+ReadWriteMany volumes when in production, and that solution may be the current
+GlusterFS installation.
 
 ### Networking
 

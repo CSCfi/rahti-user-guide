@@ -1,30 +1,22 @@
-## Using the web interface
+# Getting started
 
-\if{LDAP_LOGIN_SUPPORT}
-!!! note
-    Projects in OpenShift are separate from CSC computing projects. A single CSC
-    computing project can have access to multiple projects in OpenShift.
-    Each CSC computing project with access to \env{SYSTEM_NAME} gets a *group* in
-    OpenShift.
-\endif
+All applications launched in OpenShift run inside **projects** that can be
+created by any authenticated user. Each project has its own private virtual
+network and is isolated from other projects. Users can only see those projects
+that they've created themselves or that have been shared with them. Any
+containers, volumes and other resources created by users are always created
+inside a project.
+
+You can either select applications to run from the application catalog that is
+visible when first logging in or launch any applications that you like using the
+primitives described in the [background chapter](/introduction/background).
+
+## Using the web interface
 
 You can login at \env{OSO_WEB_UI_URL} (see [Getting access](../introduction/access)
 for instructions). After logging in, you should see a page like this:
 
 ![OpenShift main page](img/openshift_main_page_3.7.png)
 
-Click the blue "Create Project" button to create a project and you will be
-presented with this view:
-
-![OpenShift new project dialog](img/new_project_dialog_3.7.png)
-
-Here you'll need to pick a unique name that is not in use by any other project
-in the system. You can also enter a human readable display name and a
-description for the project. Once you've filled in the fields, click "Create"
-and you will see the application catalog where you can pick from various
-application templates or import your own.
-
-For more information about using the web user interface, you can refer to the
-[official OpenShift documentation](https://docs.okd.io/). You can find
-out which version of the documentation to look at in the web interface by
-clicking the question mark symbol in the top bar and selecting "About".
+After logging in, you should proceed to [create a
+project](/usage/projects_and_quota/) in which to run your application(s).
