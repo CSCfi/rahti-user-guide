@@ -19,6 +19,7 @@ environment variables:
 
 | Variable             | Description                                         |
 |----------------------|-----------------------------------------------------|
+| BILLING_ENABLED      | Whether the system has usage based billing.         |
 | GITLAB_LOGIN_SUPPORT | Whether the system supports GitLab logins.          |
 | LDAP_LOGIN_SUPPORT   | Whether the system supports LDAP logins.            |
 | OPENSHIFT_VERSION    | What version of OpenShift is in use.                |
