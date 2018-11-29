@@ -72,7 +72,7 @@ sudo docker build -t rahti-user-guide \
 Then run the container:
 
 ```bash
-sudo docker run --rm -it -p 8000:8000 --name rahti-user-guide rahti-user-guide
+sudo docker run --rm -it -p 80:8000 --name rahti-user-guide rahti-user-guide
 ```
 
 ## Hosting on OpenShift
