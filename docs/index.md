@@ -1,3 +1,11 @@
+\if{LDAP_LOGIN_SUPPORT}
+!!! note
+    If you have access to \env{SYSTEM_NAME} via multiple CSC computing
+    projects, you may need to explicitly specify which one to use when
+    creating OpenShift projects. For more information, see the [projects and
+    quota documentation page](/usage/projects_and_quota).
+\endif
+
 Welcome to the \env{SYSTEM_NAME} container cloud! If you are not yet
 familiar with container technology or container orchestration systems such as
 Kubernetes or OpenShift, you could start by reading a generic introduction to
