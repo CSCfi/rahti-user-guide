@@ -45,12 +45,14 @@ from the billing unit quota of project_1000123. Note that project_1000123 must
 have \env{SYSTEM_NAME} access and you must be a member of that computing project
 or the OpenShift project creation will fail.
 
-You can also set a default billing project with the [My Projects
+If you would like to know which CSC computing projects you are a member of, you
+can view a list in the [My Projects
 tool](https://sui.csc.fi/group/sui/my-projects) of the Scientist's User
-Interface. Select the project that you would like to have as your default
-billing project and click "Set As Billing Project". After doing this, the
-default billing project will be selected as the billing project for OpenShift
-projects that don't explicitly specify one.
+Interface. You can also set a default billing project with the same tool. Select
+the project that you would like to have as your default billing project and
+click "Set As Billing Project". After doing this, the default billing project
+will be selected as the billing project for OpenShift projects that don't
+explicitly specify one.
 
 If you would like to know which CSC computing project an OpenShift project is
 associated with, you can do so using the oc command line tool. You can find
