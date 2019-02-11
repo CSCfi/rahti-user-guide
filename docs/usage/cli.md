@@ -25,29 +25,80 @@ command line.
     If you open multiple terminals, the login session for oc will be active in
     all of them.
 
-## Basic commands
+<!-- ## Basic commands -->
+<!--  -->
+<!-- Get information: -->
+<!--  -->
+<!-- ```bash -->
+<!-- # List existing API objects -->
+<!-- oc get pods|deployments|services|... -->
+<!-- # Get more detailed information about an API object -->
+<!-- oc describe pod|deployment|service|... myapiobject -->
+<!-- # Get the YAML representation of an API object -->
+<!-- oc get pod|deployment|service|... myapiobject -o yaml -->
+<!-- ``` -->
+<!--  -->
+<!-- Create or update: -->
+<!--  -->
+<!-- ```bash -->
+<!-- # Create an API object from a file -->
+<!-- oc create -f somefile.yaml -->
+<!-- # Edit an existing API object -->
+<!-- oc edit deployment|service|... myapiobject -->
+<!-- # Replace API object with an updated one -->
+<!-- oc replace -f somefile.yaml -->
+<!-- ``` -->
+<!--  -->
+## CLI cheat sheet
 
-Get information:
+
+**Basic usage:**
 
 ```bash
-# List existing API objects
-oc get pods|deployments|services|...
-# Get more detailed information about an API object
-oc describe pod|deployment|service|... myapiobject
-# Get the YAML representation of an API object
-oc get pod|deployment|service|... myapiobject -o yaml
+$ oc <subcommand> <--flags>
 ```
 
-Create or update:
+**Examples**
+
+Get all pods:
 
 ```bash
-# Create an API object from a file
-oc create -f somefile.yaml
-# Edit an existing API object
-oc edit deployment|service|... myapiobject
-# Replace API object with an updated one
-oc replace -f somefile.yaml
+$ oc get pods
 ```
+
+Get all pods that have key-value -pair `app: myapp` in `metadata.labels`:
+
+```bash
+$ oc get pods --selector app=myapp
+```
+
+Output specifications of pod `mypod`
+
+```bash
+$ oc get pod mypod -o yaml
+```
+
+**Other useful commands**
+
+* `oc create` creates an object. Example: `oc create -f file.yaml`.
+* `oc replace` replaces object. Example: `oc replace -f file.yaml`
+* `oc delete` deletes object in openshit. Example: `oc delete rc myreplicationcontroller`
+* `oc apply` modifies object according to input. Example `oc apply -f file.yaml`
+* `oc explain` prints out API documentation on. Example: `oc explain dc.spec`.
+
+### **Abbreviations**
+
+Object types have abbreviations that are recognized on CLI:
+
+|Abbreviation |Meaning|
+|-----:|:-------|
+|`is`|`ImageStream`|
+|`dc`|`DeploymentConfig`|
+|`svc`|`Service`|
+|`bc`|`BuildConfig`|
+|`rc`|`ReplicationController`|
+|`pvc`|`PersistentVolumeClaim`|
+
 
 ## More documentation
 
