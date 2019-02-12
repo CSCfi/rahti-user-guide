@@ -7,14 +7,14 @@ In these examples, a apache http server is started from container image included
 Minimally we need the following objects defined in the cluster to have the server running:
 
 1. Pod that runs the container
-2. Service that exposes the pod internally and gives it a predictable name to refer
-3. Route that will expose the Service in 2. to outer world and redirects
+2. Service that exposes the pod internally and gives it a predictable name
+3. Route that will expose the Service in to outer world and redirects
    `myservice-staticserve.rahtiapp.fi` to the given service object.
 
 !!! Note 
-    One should not deploy applications the way described in this documentation. This tutorial is meant for learning the core concepts of Kuberenetes, instead. If you already know about pods, services and routes, you might be interested in the chapter [Advanced concepts](/tutorials/advanced_tutorial).
+    In practice, one should not deploy applications the way described in this documentation. This tutorial is meant for learning the core concepts of Kuberenetes, instead. If you already know about pods, services and routes, you might be interested in the chapter [Advanced concepts](/tutorials/advanced_tutorial).
 
-Having said that, lets go ahead and define the pod, service, route and the replication controller manually.
+<!-- Having said that, lets go ahead and define the pod, service, route and the replication controller manually. -->
 
 ## Preparations
 
@@ -42,11 +42,11 @@ Install the `oc` command line tool and authenticate a command line session by lo
 $  oc login https://rahti.csc.fi:8443 --token=<secret access token>
 ```
 
-  The secret access token is valid only for limited time, so each time on starts working with `oc` tool, one needs to re-authenticate.
+  The secret access token is only valid for a limited time.
 
 ## Projects
 
-The OpenShift command `oc projects` shows the projects one has access to:
+The command `oc projects` shows the projects one has access:
 
 ```bash
 $ oc projects
@@ -58,15 +58,15 @@ You have access to the following projects and can switch between them with 'oc p
 Using project "my-project-with-unique-name" on server "https://rahti.csc.fi:8443".
 ```
 
-If there weren't a suitable project, a new is created with `oc new-project`
+If there weren't a suitable project, a new is created with `oc new-project`.
 
 ```bash
 $ oc new-project my-project-with-unique-name
 ``` 
 
-Notice that the name may only contain letters, digits and hyphen symbols and it is not case sensitive.
+Notice that the name may only contain letters, digits and hyphen symbols and it is not case sensitive. In essence the name needs to be compatible DNS Label specification.
 
-And switching to an existing project:
+Switch to `another-project` as follows:
 
 ```bash
 $ oc project another-project
@@ -78,11 +78,9 @@ The name of the project needs to be unique across rahti container cloud. If you 
 $ oc new-project my-project-with-unique-name --description='csc_project: #######'
 ```
 
-## Pods and how to create objects using CLI
+## Pods and Command Line Interface
 
 Pods are objects that keep given number of containers running. The containers in the pod are guaranteed to run on one *node* so that they find each other at `localhost` and they can communicate through shared memory.
-
-Usually pods are not created by hand except in special cases. Instead, higher level objects (Deployments, DeploymentConfigs, etc...) are more often utilized.
 
 In our case, the pod will run the container image with the web server.
 
@@ -102,15 +100,17 @@ spec:
     image: "docker-registry.default.svc:5000/openshift/httpd"
 ```
 
-This pod will run one container image given in the field `spec.containers[0].image`. 
+This pod will run one container image given in the field `spec.containers.image`. 
 
-* `metadata.name` is the name so that the pod can be referred using, e.g., `oc`:
+* The name of the pod is given in `metadata.name`. The pod can be referred now using `oc`:
 
 ```bash
 oc get pods mypod
 ```
 
-* `metadata.labels.pool` is just an arbitrary label so that the pod can be referred by, e.g., *services*.
+* `metadata.labels.pool` is an arbitrary label so that the pod can be referred by, e.g., *services*.
+
+The Kubernetes objects are represented in YAML format. [Here](#short-introduction-to-yaml) is a minimal introduction to it.
 
 Pods and other Kubernetes/OpenShift API objects are created with the `oc` command line utility as follows:
 
@@ -118,7 +118,7 @@ Pods and other Kubernetes/OpenShift API objects are created with the `oc` comman
 $ oc create -f pod.yaml
 ```
 
-The pod should now appear in OpenShift web console overview if the correct project is viewed in the console.
+The pod should now appear in OpenShift web console overview if the correct project is viewed.
 
 Pods can be deleted using the `oc delete` command:
 
@@ -126,7 +126,9 @@ Pods can be deleted using the `oc delete` command:
 $ oc delete pod mypod
 ```
 
-Consequently, the pod should disapper from the OpenShift web console, but let's keep the pod running for now.
+Consequently, the pod should disapper from the OpenShift web console, but let's keep this one running for now.
+
+----
 
 ### Resources
 
@@ -155,6 +157,8 @@ spec:
         cpu: "1"
 ```
 
+----
+
 ## Service
 
 Service objects provide consistent network identity to pods.
@@ -177,6 +181,14 @@ spec:
 ```
 
 This service will redirect TCP traffic internally in the project to the pods having labels listed in `spec.selector`. In this case, the service will redirect to all the pods having label `pool: servepod`. If there are multiple pods matching `spec.selector` then traffic is split between pods in a defined way.
+
+Lets try that the service actually works by launching remote shell at container of `mypod`
+
+```bash
+$ oc rsh mypod
+sh-4.2$ ping serve
+PING serve.my-project-with-unique-name.svc.cluster.local (172.30.39.82) 56(84) bytes of data.
+```
 
 ## Route
 
@@ -241,9 +253,21 @@ spec:
         image: "docker-registry.default.svc:5000/openshift/httpd"
 ```
 
-A central Kubernetes' concept coined *reconciliation loop* manifests in ReplicationControllers. Reconciliation loop is a mechanism that measures the *actual state* of the system, constructs *current state* based to the measurement of the system and performs such actions that the state of the system would equal to the *desired state*.
+!!! Note
+    A central Kubernetes' concept coined *reconciliation loop* manifests in ReplicationControllers. Reconciliation loop is a mechanism that measures the *actual state* of the system, constructs *current state* based to the measurement of the system and performs such actions that the state of the system would equal to the *desired state*.
 
-In such a terminology, ReplicationControllers are objects that describe *desired state* of the cluster. Another such an object is the service object encountered earlier. There is an another reconciliation loop that compares the endpoints of the service the actual pods that are *ready* and adjusts accordingly. As a result, the endpoints of the service always point to pods that are ready and only those pods whose labels contain all the fields in the selector of the service object. In fact, every incidence of `spec` in a YAML representations of Kubernetes objects, describes a specification for a reconciliation loop. The loops for pods just happen to be tied to the worker nodes of Kubernetes and are thus susceptible to deletion if/when the worker nodes are deprovisioned.
+    In such a terminology, ReplicationControllers are objects that describe *desired state* of the cluster. Another such an object is the service object encountered earlier. There is an another reconciliation loop that compares the endpoints of the service the actual pods that are *ready* and adjusts accordingly. As a result, the endpoints of the service always point to pods that are ready and only those pods whose labels contain all the fields in the selector of the service object. In fact, every incidence of `spec` in a YAML representations of Kubernetes objects, describes a specification for a reconciliation loop. The loops for pods just happen to be tied to the worker nodes of Kubernetes and are thus susceptible to deletion if/when the worker nodes are deprovisioned.
+
+
+## Cleaning up
+
+Once we are satisfied with the application, let us not keep it running in the cluster but let's remove it with the `oc delete` command:
+
+```bash
+$ oc delete all --selector app=serveapp
+```
+
+This will delete all objects having label `app: serveapp`.
 
 ## Conclusion
 
@@ -258,7 +282,7 @@ In this tutorial a static web page server was set up using YAML files representi
 
 ## Short introduction to YAML
 
-YAML is used to describe key-value maps and arrays. You can recognize YAML file from `.yml` or `.yaml` file suffix.
+YAML is used to describe key-value maps and arrays. YAML file are recognized from `.yml` or `.yaml` file suffix.
 
 A YAML dataset can be
 
@@ -303,8 +327,8 @@ key:
       yet another key: value of yak
     another keys lost sibling:
       - more values
-    this key has one value which is array too:
-    - so indentation is not necessary here since keys often contain arrays
+    this keys value is also an array:
+    - but indentation is not necessary here
 ```
 
 Values can be inputted across multiple lines with `>`:
@@ -326,7 +350,7 @@ key: |
   treated as such so
 ```
 
-YAML is also a superset of JSON (JavaScript Object Notation), so
+YAML is also a superset of JSON (JavaScript Object Notation). Thus,
 
 ```json
 {
@@ -336,13 +360,13 @@ YAML is also a superset of JSON (JavaScript Object Notation), so
     {
       "another key": {"yet another key": "value of yak"},
       "another keys lost sibling": ["more values"],
-      "this key has one value which is array too": ["so indentation is not necessary here since keys often contain arrays"]
+      "this keys value is also an array": ["but indentation is not necessary here"]
     }
   ]
 }
 ```
 
-is also YAML.
+is also valid YAML.
 
 For more information, see [yaml.org](https://yaml.org/) or [json.org](https://json.org).
 

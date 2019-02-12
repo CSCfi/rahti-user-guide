@@ -1,6 +1,6 @@
 # Using OpenShift extensions
 
-In this example we'll explore creating the `serveapp` using OpenShifts extensions `DeploymentConfig`, `ImageStream` and `BuildConfig`. Roughly speaking, their role in the process is this:
+In this example we'll explore OpenShift's extensions `DeploymentConfig`, `ImageStream` and `BuildConfig` by creating the `serveapp` using them. Their role in the process is as follows:
 
 * BuildConfig objects build container images based on source files
 * ImageStream objects that emit signals when they see that a new image is uploaded into it by, e.g., BuildConfig
@@ -8,7 +8,7 @@ In this example we'll explore creating the `serveapp` using OpenShifts extension
 
 ## DeploymentConfig
 
-DeploymentConfig is an object that create ReplicationControllers according to `spec.template`. However, the difference to the ReplicationController is that DeploymentConfig can start new ReplicationController based on state of `spec.triggers`. They function similarly to Deployments described in [Background](/introduction/background) except they can get triggered by new images.
+DeploymentConfig is an object that creates ReplicationControllers according to `spec.template`. However, the difference to the ReplicationController is that DeploymentConfig can start new ReplicationController based on state of `spec.triggers`. They function similarly to Deployments described in [Background](/introduction/background) except they can get triggered by changed images.
 
 *`deploymentconfig.yaml`*
 ```yaml

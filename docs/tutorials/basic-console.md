@@ -1,4 +1,4 @@
-# Static web server with web console
+# Static web server
 
 This tutorial guides you to set up a static http server in rahti.
 

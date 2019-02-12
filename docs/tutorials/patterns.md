@@ -1,47 +1,4 @@
-## Jobs
 
-*Jobs* are in a sense run-to-completion Pods, except that they operate on the same level as ReplicationControllers, in a sense that they too define template for pod to be launched instead of directly describing the pod. The difference is, however, that *Jobs* are not restarted when they finish.
-
-*`job.yaml`*:
-
-```yaml
-apiVersion: batch/v1
-kind: Job
-metadata:
-  name: pi
-spec:
-  template:
-    spec:
-      volumes:
-      - name: smalldisk-vol
-        emptyDir: {}
-      containers:
-      - name: pi
-        image: perl
-        command:
-        - sh
-        - -c
-        - >
-          echo helloing so much here! Lets hello from /mountdata/hello.txt too: &&
-          echo hello to share volume too >> /mountdata/hello-main.txt &&
-          cat /mountdata/hello.txt
-        volumeMounts: 
-        - mountPath: /mountdata
-          name: smalldisk-vol
-      restartPolicy: Never
-      initContainers:
-      - name: init-pi
-        image: perl
-        command: 
-        - sh
-        - -c
-        - >
-          echo this hello is from the initcontainer >> /mountdata/hello.txt
-        volumeMounts: 
-        - mountPath: /mountdata
-          name: smalldisk-vol
-  backoffLimit: 4
-```
 
 ## Persistent storage
 
@@ -134,7 +91,9 @@ The shared volume is defined in `spec.volumes` and "mounted" in `spec.initContai
 
 ## Jobs
 
-*Jobs* are in a sense run-to-completion Pods, except that they operate on the same level as ReplicationControllers, in a sense that they too define template for pod to be launched instead of directly describing the pod. The difference is, however, that *Jobs* are not restarted when they finish.
+*Jobs* are run-to-completion Pods, except that they operate on the same level as ReplicationControllers, in the sense that they too define template for pod to be launched instead of directly describing the pod. The difference is, however, that *Jobs* are not restarted when they finish.
+
+*`job.yaml`*:
 
 ```yaml
 apiVersion: batch/v1
@@ -174,6 +133,24 @@ spec:
           name: smalldisk-vol
   backoffLimit: 4
 ```
+
+This job will name the pod automatically and the pod can be queried with job-name label:
+
+```bash
+$ oc get pods --selector job-name=pi
+NAME       READY     STATUS      RESTARTS   AGE
+pi-gj7xg   0/1       Completed   0          3m
+```
+
+Thus the stdout of the job is:
+
+```bash
+$ oc logs pi-gj7xg
+helloing so much here! Lets hello from /mountdata/hello.txt too:
+this hello is from the initcontainer
+```
+
+There may be only one object of given name in the project namespace, thus the job cannot be run twice unless the first instance of it is removed. The pod, however, needs not to be cleaned.
 
 ## Passing configuration data to containers: ConfigMap and Secrets
 
