@@ -456,9 +456,9 @@ Verbatim style is supported with `|` character:
 
 ```yaml
 key: |
-  Now the each
+  Now each
   newline is
-  treated as such so
+  treated as such
 ```
 
 YAML is also a superset of JSON (JavaScript Object Notation). Thus,
