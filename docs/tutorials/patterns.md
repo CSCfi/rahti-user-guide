@@ -1,5 +1,3 @@
-
-
 ## Persistent storage
 
 Persistent storage is requested from the cluster using `PersistentVolumeClaim` objects:
@@ -19,11 +17,14 @@ spec:
       storage: 1Gi
 ```
 
-Persistent storage can be requested also from GUI.
+Persistent storage can be requested also from the web console.
 
-This will request a 1 GiB persistent storage that can be mounted in read-write mode by multiple nodes.
+This will request a 1 GiB persistent storage that can be mounted in read-write
+mode by multiple nodes.
 
-The persistent volume can be mounted to pods with `spec.volumes` and `spec.containers.volumes`:
+The persistent volume can be used in a pod by specifying `spec.volumes`
+(defines volumes to attach) and `spec.containers.volumeMounts` (defines where
+to mount attached volumes in the container's filesystem):
 
 *`pvc-pod.yaml`*:
 
@@ -39,7 +40,7 @@ spec:
   containers:
   - name: serve-cont
     image: "docker-registry.default.svc:5000/openshift/httpd"
-    volumeMounts: 
+    volumeMounts:
     - mountPath: /mountdata
       name: smalldisk-vol
   volumes:
@@ -50,7 +51,9 @@ spec:
 
 ## InitContainer
 
-*InitContainer* is a container in a pod that is run to completion before the main containers are started. Data from init containers are most easily transfered to the main container using volume mounts
+*InitContainer* is a container in a pod that is run to completion before the
+main containers are started. Data from init containers are most easily
+transfered to the main container using volume mounts
 
 *`pod-init.yaml`*:
 
@@ -63,7 +66,7 @@ metadata:
     app: serveapp
     pool: servepod
 spec:
-  volumes: 
+  volumes:
   - name: sharevol
     emptyDir: {}
   initContainers:
@@ -85,13 +88,18 @@ spec:
       name: sharevol
 ```
 
-Here we run init container from image perl which echoes stuff to file `index.html` on the shared volume. 
+Here we run an init container that uses the `perl` Docker image and writes text
+to the `index.html` file on the shared volume.
 
-The shared volume is defined in `spec.volumes` and "mounted" in `spec.initContainers.volumeMounts` and `spec.containers.volumeMounts`.
+The shared volume is defined in `spec.volumes` and "mounted" in
+`spec.initContainers.volumeMounts` and `spec.containers.volumeMounts`.
 
 ## Jobs
 
-*Jobs* are run-to-completion Pods, except that they operate on the same level as ReplicationControllers, in the sense that they too define template for pod to be launched instead of directly describing the pod. The difference is, however, that *Jobs* are not restarted when they finish.
+*Jobs* are run-to-completion Pods, except that they operate on the same level
+as ReplicationControllers, in the sense that they too define template for pod
+to be launched instead of directly describing the pod. The difference is,
+however, that *Jobs* are not restarted when they finish.
 
 *`job.yaml`*:
 
@@ -116,25 +124,26 @@ spec:
           echo helloing so much here! Lets hello from /mountdata/hello.txt too: &&
           echo hello to share volume too >> /mountdata/hello-main.txt &&
           cat /mountdata/hello.txt
-        volumeMounts: 
+        volumeMounts:
         - mountPath: /mountdata
           name: smalldisk-vol
       restartPolicy: Never
       initContainers:
       - name: init-pi
         image: perl
-        command: 
+        command:
         - sh
         - -c
         - >
           echo this hello is from the initcontainer >> /mountdata/hello.txt
-        volumeMounts: 
+        volumeMounts:
         - mountPath: /mountdata
           name: smalldisk-vol
   backoffLimit: 4
 ```
 
-This job will name the pod automatically and the pod can be queried with job-name label:
+This job will name the pod automatically and the pod can be queried with
+job-name label:
 
 ```bash
 $ oc get pods --selector job-name=pi
@@ -150,11 +159,15 @@ helloing so much here! Lets hello from /mountdata/hello.txt too:
 this hello is from the initcontainer
 ```
 
-There may be only one object of given name in the project namespace, thus the job cannot be run twice unless the first instance of it is removed. The pod, however, needs not to be cleaned.
+There may be only one object of given name in the project namespace, thus the
+job cannot be run twice unless the first instance of it is removed. The pod,
+however, needs not to be cleaned.
 
 ## Passing configuration data to containers: ConfigMap and Secrets
 
-**ConfigMaps** are useful in collecting configuration-type data in Kuberentes' objects. Their contents are communicated to containers by environmental variables or by volume mounts.
+**ConfigMaps** are useful in collecting configuration-type data in Kuberentes'
+objects. Their contents are communicated to containers by environmental
+variables or by volume mounts.
 
 *`configmap.yaml`*:
 
@@ -163,7 +176,7 @@ kind: ConfigMap
 apiVersion: v1
 metadata:
   name: my-config-map
-data: 
+data:
   data.prop.a: hello
   data.prop.b: bar
   data.prop.long: |-
@@ -171,7 +184,9 @@ data:
     baz=notbar
 ```
 
-The following pod imports the value of `data.prop.a` to `DATA_PROP_A` environment variable and creates files `data.prop.a`, `data.prop.b` and `data.prop.long` inside `/etc/my-config`:
+The following pod imports the value of `data.prop.a` to `DATA_PROP_A`
+environment variable and creates files `data.prop.a`, `data.prop.b` and
+`data.prop.long` inside `/etc/my-config`:
 
 *`configmap-pod.yaml`*:
 
@@ -189,7 +204,7 @@ spec:
   containers:
   - name: confmap-cont
     image: perl
-    command: 
+    command:
     - /bin/sh
     - -c
     - |-
@@ -202,13 +217,14 @@ spec:
         configMapKeyRef:
           name: prop-a-config
           key: data.prop.a
-          optional: true     # Run this pod even if data.prop.a is not defined in configmap
-    volumeMounts:
+          optional: true     # Run this pod even
+    volumeMounts:            # if data.prop.a is not defined in configmap
     - name: configmap-vol
       mountPath: /etc/my-config
 ```
 
-The output log, given by command `oc logs contmap-cont` of this container should be
+The output log, given by command `oc logs contmap-cont` of this container
+should be
 
 ```
 fo=bar
@@ -217,13 +233,14 @@ DATA_PROP_A=hello
 ```
 
 **Secrets** behave much like ConfigMaps, but once created, they are stored in
-base64 encoded form and their contents are not displayed by default with `oc
-describe` command. There is an example of a Secret in the Webhooks section.
+base64 encoded form and their contents are not displayed by default with the
+`oc describe` command. There is an example of a Secret in the Webhooks section.
 
 ## Webhooks
 
-Rahti supports Generic, GitHub, GitLab and Bitbucket webhooks. They are particularly useful in triggering builds.
-The syntax for BuildConfig is as follows:
+Rahti supports Generic, GitHub, GitLab and Bitbucket webhooks. They are
+particularly useful in triggering builds. The syntax for BuildConfig is as
+follows:
 
 ```yaml
 spec:
@@ -240,27 +257,29 @@ Now the Secret `webhooksecret` should have
 apiVersion: v1
 kind: Secret
 data:
-  WebHookSecretKey: dGhpc19pc19hX2JhZF90b2tlbgo=    # "this_is_a_bad_token" in base64 encoding
-metadata:
+  WebHookSecretKey: dGhpc19pc19hX2JhZF90b2tlbgo=    # "this_is_a_bad_token" in
+metadata:                                           #  base64 encoding
   name: webhooksecret
   namespace: mynamespace     # set this to your project namespace
 ```
 
-When the BuildConfig is configured to trigger from the webhook and the corresponding secret exists, the webhook URL can be found by using (assuming we added the webhook to `serveimg-generate`) `oc describe` command:
+When the BuildConfig is configured to trigger from the webhook and the
+corresponding secret exists, the webhook URL can be found by using (assuming we
+added the webhook to `serveimg-generate`) `oc describe` command:
 
 ```
 $ oc describe bc/serveimg-generate
-Name:		serveimg-generate
+Name:                serveimg-generate
 .
 .
 .
 Webhook GitHub:
-	URL:	https://rahti.csc.fi:8443/apis/build.openshift.io/v1/.../<secret>/github
+        URL:        https://rahti.csc.fi:8443/apis/build.openshift.io/v1/.../<secret>/github
 .
 .
 .
 ```
 
-Finally, the GitHub WebHook payload url is the url above with `<secret>` replaced with base64 decoded string of the value of `data.WebHookSecretKey` above and the content type is `application/json`.
-
-
+Finally, the GitHub WebHook payload url is the url above with `<secret>`
+replaced with base64 decoded string of the value of `data.WebHookSecretKey`
+above and the content type is `application/json`.
