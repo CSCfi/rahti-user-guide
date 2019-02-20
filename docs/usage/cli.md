@@ -25,33 +25,92 @@ command line.
     If you open multiple terminals, the login session for oc will be active in
     all of them.
 
-## Basic commands
+## CLI cheat sheet
 
-Get information:
-
-```bash
-# List existing API objects
-oc get pods|deployments|services|...
-# Get more detailed information about an API object
-oc describe pod|deployment|service|... myapiobject
-# Get the YAML representation of an API object
-oc get pod|deployment|service|... myapiobject -o yaml
-```
-
-Create or update:
+**Basic usage:**
 
 ```bash
-# Create an API object from a file
-oc create -f somefile.yaml
-# Edit an existing API object
-oc edit deployment|service|... myapiobject
-# Replace API object with an updated one
-oc replace -f somefile.yaml
+oc <command> <--flags>
+oc help <command>
 ```
+
+**Examples:**
+
+Authorize CLI tool to the cluster:
+
+```bash
+oc login https://rahti.csc.fi:8443 --token=<secret access token>
+```
+
+This command can be obtained by clicking your usename and "Copy Login Command"
+in the web console:
+
+![copy login](../tutorials/img/copy-login.png)
+
+Show projects:
+
+```bash
+oc projects
+```
+
+Switch to project `my-project`:
+
+```bash
+oc project my-project
+```
+
+Show all pods in the current namespace:
+
+```bash
+oc get pods
+```
+
+Show all pods in namespace `<my-other-name-space>`:
+
+```bash
+oc get pods -n <my-other-namespace>
+```
+
+Show all pods that have key-value -pair `app: myapp` in `metadata.labels`:
+
+```bash
+oc get pods --selector app=myapp
+```
+
+Output specifications of pod `mypod`
+
+```bash
+oc get pod mypod -o yaml
+```
+
+### Other useful commands
+
+* `oc create` creates an object. Example: `oc create -f file.yaml`
+* `oc replace` replaces object. Example: `oc replace -f file.yaml`
+* `oc delete` deletes object in openshit. Example: `oc delete rc
+  myreplicationcontroller`
+* `oc apply` modifies object according to input. Example `oc apply -f
+  file.yaml`
+* `oc explain` prints out API documentation. Example: `oc explain dc.spec`
+* `oc edit` loads object from API to local editor chosen by `$EDITOR`
+  environment variable. Example: `oc edit DeploymentConfig mydc`
+
+## Abbreviations
+
+Object types have abbreviations that are recognized on CLI:
+
+|Abbreviation |Meaning|
+|-----:|:-------|
+|`is`|`ImageStream`|
+|`dc`|`DeploymentConfig`|
+|`svc`|`Service`|
+|`bc`|`BuildConfig`|
+|`rc`|`ReplicationController`|
+|`pvc`|`PersistentVolumeClaim`|
 
 ## More documentation
 
 See the official documentation for more information on using the command line
 interface:
 
-   * [OpenShift documentation: CLI reference](https://docs.okd.io/latest/cli_reference/index.html)
+* [OpenShift documentation: CLI reference](https://docs.okd.io/latest/cli_reference/index.html)
