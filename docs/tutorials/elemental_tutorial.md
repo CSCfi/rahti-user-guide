@@ -214,7 +214,7 @@ documentation](https://kubernetes.io/docs/tasks/configure-pod-container/quality-
 ## Service
 
 The IP addresses of Pods are not consistent and may change if, for example,
-a pod killed and recreated. Thus, in order to reliably access a pod, its IP
+a pod is killed and recreated. Thus, in order to reliably access a pod, its IP
 address must be tracked and stored. Service objects do just that and as
 a result they provide a consistent network identity to pods:
 
@@ -302,8 +302,7 @@ mechanism that will, roughly speaking, do that for the user.
 ## ReplicationController
 
 A ReplicationController ensures that there are `spec.replicas` number of pods
-whose labels match `spec.selector.matchLabels` (or
-`spec.selector.matchExpression`) running in the cluster. If there are too many,
+whose labels match `spec.selector` running in the cluster. If there are too many,
 ReplicationController will shut down the extra ones and if there are too few,
 it will start up pods according to `spec.template` field. Actually, the
 template field is exactly the pod described in `pod.yaml` except the fields
@@ -321,9 +320,8 @@ metadata:
 spec:
   replicas: 1
   selector:
-    matchLabels:
-      app: serveapp
-      pool: servepod
+    app: serveapp
+    pool: servepod
   template:
     metadata:
       name: mypod
@@ -339,30 +337,30 @@ spec:
 The ReplicationControllers are functionally near ReplicaSets, treated
 in Chapter "[Kubernetes and OpenShift
 Concepts](../introduction/background#kubernetes-and-openshift-concepts)".
-In essence, a ReplicationController can be transformed in to a ReplicaSet by
-changing `metadata.labels` to `metadata.matchLabels` and setting
+And really, a ReplicationController can be transformed in to a ReplicaSet by
+changing `spec.selector` to `spec.selector.matchLabels` and setting
 `kind: ReplicaSet`. The motivation to understand the ReplicationController
 object is that [DeploymentConfig](advanced_tutorial#deploymentconfig)
 objects generate ReplicationControllers.
 
 !!! Note
     A central Kubernetes' concept coined *reconciliation loop* manifests in
-    ReplicationControllers. Reconciliation loop is a mechanism that measures
+    ReplicationControllers. The Reconciliation loop is a mechanism that measures
     the *actual state* of the system, constructs *current state* based to the
     measurement of the system and performs such actions that the state of the
     system would equal to the *desired state*.
 
-    In such a terminology, ReplicationControllers are objects that describe
+    In such a terminology, ReplicationControllers are objects that describe the
     *desired state* of the cluster. Another such an object is the service
-    object encountered earlier. There is an another reconciliation loop that
-    compares the endpoints of the service the actual pods that are *ready* and
-    adjusts accordingly. As a result, the endpoints of the service always point
-    to pods that are ready and only those pods whose labels contain all the
-    fields in the selector of the service object. In fact, every incidence of
-    `spec` in a YAML representations of Kubernetes objects, describes
-    a specification for a reconciliation loop. The loops for pods just happen
-    to be tied to the worker nodes of Kubernetes and are thus susceptible to
-    deletion if/when the worker nodes are deprovisioned.
+    object encountered earlier. There, an another reconciliation loop compares
+    the endpoints of the service to the actual pods that are ready and adjusts
+    accordingly. As a result, the endpoints of the service always point to pods
+    that are ready and only those pods whose labels contain all the fields in
+    the selector of the service object. In fact, every incidence of `spec` in
+    a YAML representations of Kubernetes objects, describes a specification for
+    a reconciliation loop. The loops for pods just happen to be tied to the
+    worker nodes of Kubernetes and are thus susceptible to deletion if, or
+    when, the worker nodes are deprovisioned.
 
 ## Cleaning up
 
@@ -381,10 +379,10 @@ In this tutorial a static web page server was set up using YAML files
 representing the Kubernetes objects. The created objects can be further
 modified in the OpenShift web console where, e.g.,
 
-* Routes can be modified to be secure ones encrypted by TLS,
-* autoscalers, storage, resource limits and health checks can be added to
-  ReplicationControllers, and
-* new routes can be added to Services.
+* Routes can be modified to be secure ones encrypted by TLS.
+* Autoscalers, persistent storage, resource limits and health checks can be
+  added to ReplicationControllers.
+* New routes can be added to Services.
 
 ## Short introduction to YAML
 
@@ -393,13 +391,13 @@ from `.yml` or `.yaml` file suffix.
 
 A YAML dataset can be
 
-* Value
+*   a value
 
 ```yaml
 value
 ```
 
-* Array
+*  an array
 
 ```yaml
 - value 1
@@ -413,14 +411,14 @@ or
 [value 1, value 2, value 3]
 ```
 
-* Dictionary
+*   a dictionary
 
 ```yaml
 key: value
 another_key: another value
 ```
 
-or
+  or
 
 ```yaml
 key:
@@ -429,14 +427,14 @@ another_key:
   another value
 ```
 
-* YAML dataset
+*   YAML dataset
 
 ```yaml
 key:
   - value 1
   - another key:
-      yet another key: value of yak
-    another keys lost sibling:
+      yet another key: value 2
+    another key 2:
       - more values
     this keys value is also an array:
     - but indentation is not necessary here
@@ -469,8 +467,8 @@ YAML is also a superset of JSON (JavaScript Object Notation). Thus,
   [
     "value 1",
     {
-      "another key": {"yet another key": "value of yak"},
-      "another keys lost sibling": ["more values"],
+      "another key": {"yet another key": "value 2"},
+      "another key 2": ["more values"],
       "this keys value is also an array": ["but indentation is not necessary here"]
     }
   ]

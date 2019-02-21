@@ -51,9 +51,9 @@ spec:
 
 ## InitContainer
 
-*InitContainer* is a container in a pod that is run to completion before the
-main containers are started. Data from init containers are most easily
-transfered to the main container using volume mounts
+*InitContainer* is a container in a pod that is meant run to completion before
+the main containers are started. Data from the init containers can be
+transferred to the main container using, e.g., empty volume mounts
 
 *`pod-init.yaml`*:
 
@@ -88,7 +88,7 @@ spec:
       name: sharevol
 ```
 
-Here we run an init container that uses the `perl` Docker image and writes text
+Here we run an init container that uses the `perl` image and writes text
 to the `index.html` file on the shared volume.
 
 The shared volume is defined in `spec.volumes` and "mounted" in
@@ -151,7 +151,7 @@ NAME       READY     STATUS      RESTARTS   AGE
 pi-gj7xg   0/1       Completed   0          3m
 ```
 
-Thus the stdout of the job is:
+Thus the standard output of the job is:
 
 ```bash
 $ oc logs pi-gj7xg
@@ -223,7 +223,7 @@ spec:
       mountPath: /etc/my-config
 ```
 
-The output log, given by command `oc logs contmap-cont` of this container
+The output log, given by command `oc logs confmap-cont` of this container
 should be
 
 ```
