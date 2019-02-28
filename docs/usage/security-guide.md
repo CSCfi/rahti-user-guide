@@ -16,7 +16,7 @@ Whenever your service can be reached from a set of static IP addresses, use
 whitelists. For example use, see
 "[Routes](../tutorials/elemental_tutorial#routes)" Chapter.
 
-## Be mindful what containers to use
+## Be mindful what container images to use
 
 Never under any circumstances use container image unless
 
@@ -26,6 +26,7 @@ Never under any circumstances use container image unless
 
 Other things to keep in mind:
 
+* Use curated images. For example images from [RedHat](https://access.redhat.com/containers/#/)
 * Prefer OpenShift bundled images *[TODO: how to list/get information about
   these]*
 * Prefer images that regularly receive security updates. A one family
@@ -49,4 +50,6 @@ Here is a non-exhaustive list of threat models and mitigations to them.
 |:-------|:-----------|
 | Eavesdropping attack when using HTTP protocol for secure information. | Use HTTPS protocol |
 | User's password is leaked. | Restrict userbase. Restrict user access rights. Don't allow user to use console. |
-| Application is compromised remote attackers by technical security vulnerability. | Keep images updated. Follow security updates. Follow `rahti-users` mailing list.|
+| Application is compromised remote attackers by technical security vulnerability. | Keep images updated. Follow security updates. Follow `rahti-users` mailing list. Utilize image scanning services. |
+| Container image includes malware code | Be mindful what container images to use. |
+
