@@ -15,12 +15,12 @@ role in the process is as follows:
 
 ## DeploymentConfig
 
-DeploymentConfig is an object that creates
+DeploymentConfigs are an objects that create
 [ReplicationControllers](elemental_tutorial#replicationcontroller) according to
-`spec.template`. However, the difference to the ReplicationController is that
-DeploymentConfig can start new a ReplicationController based on state of
+`spec.template`. They differ to ReplicationControllers in a sense that 
+DeploymentConfig objects may start new a ReplicationControllers based on the state of
 `spec.triggers`. In the example below, the DeploymentConfig will perform
-automatic rolling update when the it gets triggered by an ImageStream named
+an automatic rolling update when the it gets triggered by an ImageStream named
 "serveimagestream:latest". For other update strategies see "[Deployment
 Strategies](https://docs.okd.io/3.10/dev_guide/deployments/deployment_strategies.html)"
 in the OpenShift documentation.
@@ -31,7 +31,7 @@ trigger updates only when `spec.template` is changed. Furthermore, Deployments
 is a pure Kubernetes concept and DeploymentConfig is an OpenShift extension.
 
 Recall that [ReplicationControllers](elemental_tutorial#replicationcontroller)
-are objects make sure that requested number replicas of the pod defined in the
+are objects that make sure that a requested number replicas of the pod defined in the
 `spec.template` are running.
 
 *`deploymentconfig.yaml`*:

@@ -1,17 +1,12 @@
 # Introduction
 
 In this tutorial Kubernetes' core concepts Pods, Services, Routes and
-ReplicationControllers and their YAML representations are discussed.
-
-In these examples, an Apache HTTP server is started from a container image
-included in OpenShift by default and the server is exposed at
-`<myservice>.rahtiapp.fi`.
+ReplicationControllers and their YAML representations are discussed. And in order
+to illustrate these *Kubernetes API Objects*, an Apache HTTP server application
+is constructed by writing plain-text YAML representations of these said objects.
 
 Minimally we need the following objects defined in the cluster to have the
 server running:
-
-The following is the minimal set of objects required in the cluster to
-have the server running and accessible.
 
 1. A Pod that runs the container
 1. A Service that exposes the pod internally and gives it a predictable name
@@ -20,16 +15,16 @@ have the server running and accessible.
 
 !!! Note
     In practice, one should not deploy applications the way described in this
-    tutorial. It is only meant for learning the core concepts of
+    tutorial. Instead, it is meant for learning the core concepts of
     Kuberenetes. If you already know about pods, services and routes,
     you might be interested in the
     "[Advanced concepts](/tutorials/advanced_tutorial)" chapter.
 
 ## Preparations
 
-If you are logged in to the Rahti web console and have the OpenShift command line
-tool `oc` installed, you can skip this section and move on the
-next one ("Projects").
+If you are logged in to the Rahti web console and have the OpenShift command
+line tool `oc` installed and the command line session authorized, you can skip
+this section and move on to the next one ("Projects"). 
 
 Install the `oc` command line tool and authenticate a command line session after
 logging in to Rahti at [rahti.csc.fi](https://rahti.csc.fi:8443/) as follows:
@@ -59,10 +54,9 @@ oc login https://rahti.csc.fi:8443 --token=<secret access token>
 !!! Note
 
     The secret access token is only valid for a limited time. After it expires,
-    you will need to repeat the steps to login. If you open a new terminal and
-    have already logged in previously, the session will be valid in the new
-    terminal as well.
-
+    you will need to repeat the steps to login. Once logged in, the session will
+    be valid in newly created terminal sessions as well.
+    
 ## Projects
 
 The command `oc projects` shows the projects one has access to:
@@ -84,8 +78,8 @@ Using project "my-project-with-unique-name" on server "https://rahti.csc.fi:8443
     public Docker images. While it is possible to switch to these projects, you
     will only have read-only access to the Docker images hosted in them.
 
-If there weren't a single suitable project, a new one could've be created with `oc
-new-project`:
+If there weren't a single suitable project, a new one could be created with the `oc
+new-project`-command:
 
 ```bash
 oc new-project my-project-with-unique-name
@@ -96,7 +90,7 @@ moreover, the name may only contain letters, digits and hyphen symbols and it
 is not case sensitive. In essence, the name needs to be usable as part of a DNS
 name.
 
-If you have multiple CSC projects with access to Rahti, the description of the
+If you are a member of multiple CSC projects with access to Rahti, the description of the
 project must contain `csc_project: #######`, where `#######` is the project
 that should be billed (see
 "[Projects and quota](/usage/projects_and_quota/#projects_and_quota)").
@@ -106,7 +100,7 @@ The description can be included in the `new-project` command as follows
 oc new-project my-project-with-unique-name --description='csc_project: #######'
 ```
 
-Switching between other projects is done with `oc project` command:
+Switching between projects is done with `oc project` command:
 
 ```bash
 oc project another-project
@@ -115,9 +109,8 @@ oc project another-project
 ## Pods and Command Line Interface
 
 Pods are objects that run one or more containers. The containers in the pod
-share the same IP address and are guaranteed to run on one physical node so
-that they can find each other at `localhost` and can communicate through shared
-memory.
+share an IP address and they can communicate through `localhost` or shared memory.
+Consequently, they are executed in single physical node.
 
 In our case, the pod will run a container image with a web server installed in
 it:
@@ -148,10 +141,10 @@ using `oc`:
 oc get pods mypod
 ```
 
-The field `metadata.labels.pool` is an arbitrary key-value pair so that the pod
-can be referred by, e.g., *services*.
+The field `metadata.labels.pool` is an arbitrary key-value pair that enables
+the pods to be grouped and referred by, e.g., *services*.
 
-The Kubernetes objects are represented in YAML format.
+The Kubernetes API objects are represented in YAML format.
 [Here](#short-introduction-to-yaml) is a minimal introduction to it.
 
 Pods and other Kubernetes/OpenShift API objects are created with the `oc`
@@ -229,18 +222,23 @@ metadata:
     app: serveapp
 spec:
   ports:
-  - name: 8080-tcp
-    port: 8080
+  - name: 8081-tcp
+    port: 8081
     protocol: TCP
+    targetPort: 8080
   selector:
     pool: servepod
 ```
 
-This service will redirect TCP traffic internally in the project to the pods
-having labels listed in `spec.selector`. In this case, the traffic is
-redirected to those pods that have the label `pool: servepod`. If there are
-multiple pods matching `spec.selector`, then the traffic is split between pods.
-By default, the splitting is done in a round-robin manner.
+This service will redirect TCP traffic internally from port 8081 in the project
+to the port 8080 of the pods having labels listed in `spec.selector`. In this
+case, the traffic is redirected to the pods with label `pool: servepod`. If
+there are multiple pods matching `spec.selector`, then the traffic is split
+between pods. By default, the splitting is done in a round-robin manner.
+
+The only required field in the `spec.ports` field is `port`. Omitting
+`protocol` defaults it to TCP and omitting `targetPort` will default to the
+value of `port`.
 
 Let's ensure that the Service actually works by launching a remote shell in the
 container running in the pod `mypod` and pinging the Service:
@@ -289,10 +287,8 @@ Internet.
     If the whitelist entry is malformed, OpenShift will discard the whitelist
     and traffic is allowed from everywhere.
 
-* If the service `spec.to.name` has multiple ports defined then one should
-  define `spec.port.targetport`
-* By default the hostname is `metadata.name` + `-` + project name +
-  `.rahtiapp.fi` unless otherwise specified in `spec.host`.
+By default, the hostname is `metadata.name` + `-` + project name
++ `.rahtiapp.fi` unless otherwise specified in `spec.host`.
 
 So far we have set up a pod, a service and a route. If the physical server
 where to pod lives gets shut down one has to manually start the pod again with
