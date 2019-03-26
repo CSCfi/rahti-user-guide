@@ -24,7 +24,7 @@ server running:
 
 If you are logged in to the Rahti web console and have the OpenShift command
 line tool `oc` installed and the command line session authorized, you can skip
-this section and move on to the next one ("Projects"). 
+this section and move on to the next one ("Projects").
 
 Install the `oc` command line tool and authenticate a command line session after
 logging in to Rahti at [rahti.csc.fi](https://rahti.csc.fi:8443/) as follows:
@@ -100,7 +100,7 @@ The description can be included in the `new-project` command as follows
 oc new-project my-project-with-unique-name --description='csc_project: #######'
 ```
 
-Switching between projects is done with `oc project` command:
+Switching between projects is done with the `oc project` command:
 
 ```bash
 oc project another-project
@@ -110,7 +110,7 @@ oc project another-project
 
 Pods are objects that run one or more containers. The containers in the pod
 share an IP address and they can communicate through `localhost` or shared memory.
-Consequently, they are executed in single physical node.
+Consequently, they need to be executed in a single physical node.
 
 In our case, the pod will run a container image with a web server installed in
 it:
@@ -341,7 +341,7 @@ objects generate ReplicationControllers.
 
 !!! Note
     A central Kubernetes' concept coined *reconciliation loop* manifests in
-    ReplicationControllers. The Reconciliation loop is a mechanism that measures
+    ReplicationControllers. The reconciliation loop is a mechanism that measures
     the *actual state* of the system, constructs *current state* based to the
     measurement of the system and performs such actions that the state of the
     system would equal to the *desired state*.
