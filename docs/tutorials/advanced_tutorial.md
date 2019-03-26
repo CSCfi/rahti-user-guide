@@ -15,7 +15,7 @@ role in the process is as follows:
 
 ## DeploymentConfig
 
-DeploymentConfigs are an objects that create
+DeploymentConfigs are objects that create
 [ReplicationControllers](elemental_tutorial#replicationcontroller) according to
 `spec.template`. They differ to ReplicationControllers in a sense that 
 DeploymentConfig objects may start new a ReplicationControllers based on the state of
