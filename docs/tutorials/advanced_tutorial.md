@@ -9,27 +9,29 @@ role in the process is as follows:
 * [ImageStream](advanced_tutorial#imagestream) objects abstract images and
   enrich them to streams that emit signals when they see that a new image is
   uploaded into them by, e.g., BuildConfig.
-* [DeploymentConfigs](advanced_tutorial#deploymentconfig) objects create new
+* [DeploymentConfig](advanced_tutorial#deploymentconfig) objects create new
   [ReplicationControllers](elemental_tutorial#replicationcontroller) based on
   the new images.
 
 ## DeploymentConfig
 
-DeploymentConfig is an object that creates
+DeploymentConfigs are objects that create
 [ReplicationControllers](elemental_tutorial#replicationcontroller) according to
-`spec.template`. However, the difference to the ReplicationController is that
-DeploymentConfig can start new a ReplicationController based on state of
+`spec.template`. They differ from ReplicationControllers in a sense that 
+DeploymentConfig objects may start new ReplicationControllers based on the state of
 `spec.triggers`. In the example below, the DeploymentConfig will perform
-automatic rolling update when the it gets triggered by an ImageStream named
-"serveimagestream:latest".
+an automatic rolling update when it gets triggered by an ImageStream named
+"serveimagestream:latest". For other update strategies see "[Deployment
+Strategies](https://docs.okd.io/latest/dev_guide/deployments/deployment_strategies.html)"
+in the OpenShift documentation.
 
-DeploymentConfig objects function similarly to Deployments described in
-[Background](/introduction/background) except that Deployments trigger updates
-only when `spec.template` is changed. Furthermore, Deployments is a pure
-Kubernetes concept and DeploymentConfig is an OpenShift extension.
+DeploymentConfig objects function similarly to Deployments described in the
+Chapter "[Background](/introduction/background)" except that Deployments
+trigger updates only when `spec.template` is changed. Furthermore, Deployment
+is a pure Kubernetes concept and DeploymentConfig is an OpenShift extension.
 
 Recall that [ReplicationControllers](elemental_tutorial#replicationcontroller)
-are objects make sure that requested number replicas of the pod defined in the
+are objects that make sure that a requested number of replicas of the pod defined in the
 `spec.template` are running.
 
 *`deploymentconfig.yaml`*:
