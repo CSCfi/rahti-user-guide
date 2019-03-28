@@ -6,20 +6,21 @@ This Service Level Agreement (hereafter called SLA) is made between the
 customer, Rahti Container Cloud Service and the service provider, CSC - IT
 Center for Science Ltd., to cover the provision and support of the service as
 described hereafter. Amendments, comments and suggestions must be addressed
-using the communication channels defined in section 8.1. The service provider
-retains right to introduce changes to the infrastructure. If the Customer does
-not accept the changes, this service subscription can be terminated.
+using the communication channels defined in the section [Communication,
+reporting and escalation](#Communication, reporting and escalation). The
+service provider retains right to introduce changes to the infrastructure. If
+the Customer does not accept the changes, this service subscription can be
+terminated.
 
 ## Scope and description of the service
 
-This SLA applies to Rahti Container Cloud Service1 (hereafter referred to as
-Rahti or the Rahti service). The Rahti service is a cloud computing service.
-The Rahti service is based on OKD, which is a distribution of Kubernetes. The
-Rahti serviceallows its customers or users to run their own workloads on top of
-it, often implemented as containers.  The Rahti service provides, but is not
+The Rahti container cloud service is a cloud computing service. The Rahti
+service is based on OKD, which is a distribution of Kubernetes. The Rahti
+service allows its customers or users to run their own applications on top of
+it, often implemented as containers. The Rahti service provides, but is not
 necessarily limited to, these resources: 
 
- * Container instances, and groups of container instances
+ * Hosting of container instances, and groups of container instances
  * Storage services 
  * Virtual networks for connecting container instances
  * Load balancing of traffic to user workloads
@@ -29,8 +30,14 @@ necessarily limited to, these resources:
 Customers can manage their resources using a web interface accessible through a
 web browser and through a set of APIs which allow programmatic management of
 resources. In order to access and use the service the customer must have a CSC
-user account. The workloads are separated from other customers’ workloads from
-a network, storage and computational view.
+user account.
+
+The user's applications are separated from other users’ applications from a
+network, storage and computational view.
+
+The Rahti service accounts for service usage based on the resources used. Up to
+date resource cost information is found in the [https://rahti.csc.fi](Rahti
+documentation).
 
 This service is provided under User policy and terms of usage for the Rahti
 contariner cloud service hence by agreeing to this document the customer also
@@ -44,15 +51,6 @@ Scheduled maintenances:
 
  * Planned service breaks - Announced to the customer at least three weeks in advance
  * Unplanned service breaks
-
-## Service components & dependencies
-The service covered by this SLA is made up of the following (technical and logical) service components:
-
- * Kajaani datacenter infrastructure
- * Funet network
- * CSC’s helpdesk
- * CSC’s cPouta service
- * CSC’s identity management service
 
 ## Support
 
@@ -94,7 +92,7 @@ Response and fulfilment times are provided as service level targets (see section
 
 ## Service level targets
 
-The Rahti service level targets adhere to JHS1745 as follows:
+The Rahti service level targets adhere to JHS174 as follows:
 
 Service level targets ||
 --- | ---
@@ -147,7 +145,8 @@ The service availability information is…. The information provided will be lim
 For escalation and complaints, the defined contact point shall be used, and the
 following rules apply:
 
-1. First contact shall be established, preferably by e-Mail, to Contact for Customers address (See section 8.1) explaining the reason for the complaint with a sensible level of detail and clarity. Please also include, if possible, the following information:
+1. First contact shall be established, preferably by e-Mail, to Contact for Customers address (See section [Communication,
+reporting and escalation](#Communication, reporting and escalation)) explaining the reason for the complaint with a sensible level of detail and clarity. Please also include, if possible, the following information:
     * Name of the service
     * Date and time of the events
     * Usernames of affected users
@@ -163,33 +162,33 @@ more information, please refer to the following pages:
 
 https://www.csc.fi/security
 
-https://www.csc.fi/web/research/rahti-security
+https://rahti.csc.fi
 
 The handling of personal information on the Rahti service is described here.
 
-https://www…..
+https://research.csc.fi/rahti
 
 ## Additional responsibilities of the Service Provider
 
 Additional responsibilities of the Service Provider are as follow:
 
- * Adhere to all applicable operational and security policies and procedures defined in CSC’s Security Policy (See section 9) and to other policy documents referenced therein
+ * Adhere to all applicable operational and security policies and procedures defined in CSC’s Security Policy ([Information security & data protection](#Information security & data protection)) and to other policy documents referenced therein
  * Use communication channels defined in the agreement
  * Provide monitoring data to measure fulfillment of agreed service level targets.
 
 ## Customer responsibilities
 
 The Customer agrees to follow the General Terms of Use for CSC's Services for
-Science7, User policy and terms of usage for the Rahti container cloud service8
-and CSC’s Security Policy9.
+Science, User policy and terms [1][1] of usage for the Rahti container cloud service [2][2]
+and CSC’s Security Policy [3][3].
 
 ## Review
 
 There will be reviews of the service performance against service level targets
 and of this SLA at planned intervals according to the following rules: 
 
- * Annual reviews are done internally and based on customer feedback
- *  Major changes to the service may trigger a review.
+ * Annual reviews are done internally and based on customer feedback.
+ * Major changes to the service may trigger a review.
 
 ## Glossary of terms
 
@@ -205,4 +204,10 @@ Working days – Monday to Friday (Excluding Finnish public holidays)
 Working hours – as defined in https://www.csc.fi/en/web/guest/customer-service
 
 An extended list of term definitions adopted on this document can be found in
-the FitSM-0: Overview and vocabulary10 document.
+the FitSM-0: Overview and vocabulary document [4][4].
+
+[terms_of_use]: https://www.csc.fi/general-terms-of-use
+[rahti_user_policy]: https://rahti.csc.fi/correct_link
+[security_policy]: http://www.csc.fi/security
+[fitsm_vocabulary]: https://fitsm.itemo.org/wp-content/uploads/sites/3/2018/05/FitSM-0_Overview_and_vocabulary.pdf
+
