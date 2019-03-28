@@ -192,9 +192,8 @@ Additional responsibilities of the Service Provider are as follow:
 
 ## Customer responsibilities
 
-The Customer agrees to follow the General Terms of Use for CSC's Services for
-Science, User policy and terms [1][1] of usage for the Rahti container cloud service [2][2]
-and CSC’s Security Policy [3][3].
+The Customer agrees to follow the [General Terms of Use for CSC's Services for
+Science](https://www.csc.fi/general-terms-of-use), [User policy and terms of usage for the Rahti container cloud service](https://rahti.csc.fi/correct_link) and [CSC’s Security Policy](http://www.csc.fi/security)
 
 ## Review
 
@@ -218,12 +217,4 @@ Working days – Monday to Friday (Excluding Finnish public holidays)
 Working hours – as defined in https://www.csc.fi/en/web/guest/customer-service
 
 An extended list of term definitions adopted on this document can be found in
-the FitSM-0: Overview and vocabulary document [4][4].
-
-## References
-
-[terms_of_use]: https://www.csc.fi/general-terms-of-use
-[rahti_user_policy]: https://rahti.csc.fi/correct_link
-[security_policy]: http://www.csc.fi/security
-[fitsm_vocabulary]: https://fitsm.itemo.org/wp-content/uploads/sites/3/2018/05/FitSM-0_Overview_and_vocabulary.pdf
-
+the [FitSM-0: Overview and vocabulary document](https://fitsm.itemo.org/wp-content/uploads/sites/3/2018/05/FitSM-0_Overview_and_vocabulary.pdf).
