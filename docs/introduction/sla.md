@@ -7,7 +7,7 @@ customer, Rahti Container Cloud Service and the service provider, CSC - IT
 Center for Science Ltd., to cover the provision and support of the service as
 described hereafter. Amendments, comments and suggestions must be addressed
 using the communication channels defined in the section [Communication,
-reporting and escalation](#Communication, reporting and escalation). The
+reporting and escalation](#communication-reporting-and-escalation). The
 service provider retains right to introduce changes to the infrastructure. If
 the Customer does not accept the changes, this service subscription can be
 terminated.
@@ -36,8 +36,14 @@ The user's applications are separated from other users’ applications from a
 network, storage and computational view.
 
 The Rahti service accounts for service usage based on the resources used. Up to
-date resource cost information is found in the [https://rahti.csc.fi](Rahti
-documentation).
+date resource cost information is found in the [Rahti documentation](https://rahti.csc.fi)
+
+The normal functioning of the service is defined as
+
+ * the ability to launch new user applications.
+ * the availablility and integrity of the storage services.
+ * the functioning of the network, and the accessibility of user applications.
+ * the functioning of replication, auto-recovery and auto-scaling of user applications.
 
 This service is provided under User policy and terms of usage for the Rahti
 contariner cloud service hence by agreeing to this document the customer also
@@ -51,6 +57,14 @@ Scheduled maintenances:
 
  * Planned service breaks - Announced to the customer at least three weeks in advance
  * Unplanned service breaks
+
+## Service components & dependencies
+
+The Rahti service is depends on the following services. The dependencies of these services are described in their respective service documentation.
+
+ * The cPouta service
+ * CSC user administration
+ * CSC Servicedesk for user support
 
 ## Support
 
@@ -146,7 +160,7 @@ For escalation and complaints, the defined contact point shall be used, and the
 following rules apply:
 
 1. First contact shall be established, preferably by e-Mail, to Contact for Customers address (See section [Communication,
-reporting and escalation](#Communication, reporting and escalation)) explaining the reason for the complaint with a sensible level of detail and clarity. Please also include, if possible, the following information:
+reporting and escalation](#communication-reporting-and-escalation)) explaining the reason for the complaint with a sensible level of detail and clarity. Please also include, if possible, the following information:
     * Name of the service
     * Date and time of the events
     * Usernames of affected users
@@ -172,7 +186,7 @@ https://research.csc.fi/rahti
 
 Additional responsibilities of the Service Provider are as follow:
 
- * Adhere to all applicable operational and security policies and procedures defined in CSC’s Security Policy ([Information security & data protection](#Information security & data protection)) and to other policy documents referenced therein
+ * Adhere to all applicable operational and security policies and procedures defined in CSC’s Security Policy ([Information security & data protection](#information-security--data-protection)) and to other policy documents referenced therein
  * Use communication channels defined in the agreement
  * Provide monitoring data to measure fulfillment of agreed service level targets.
 
@@ -205,6 +219,8 @@ Working hours – as defined in https://www.csc.fi/en/web/guest/customer-service
 
 An extended list of term definitions adopted on this document can be found in
 the FitSM-0: Overview and vocabulary document [4][4].
+
+## References
 
 [terms_of_use]: https://www.csc.fi/general-terms-of-use
 [rahti_user_policy]: https://rahti.csc.fi/correct_link

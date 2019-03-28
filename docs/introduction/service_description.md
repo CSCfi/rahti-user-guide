@@ -9,8 +9,8 @@ necessarily limited to, these resources:
  * Hosting of container instances, and groups of container instances
  * Storage services 
  * Virtual networks for connecting container instances
- * Load balancing of traffic to user workloads
- * Features for replication, rolling updates, auto-recovery and auto-scaling of user workloads
+ * Load balancing of traffic to user applications
+ * Features for replication, rolling updates, auto-recovery and auto-scaling of user user applications
  * Basic default domain name and TLS for hosted web applications (under rahtiapp.fi)
 
 Customers can manage their resources using a web interface accessible through a
