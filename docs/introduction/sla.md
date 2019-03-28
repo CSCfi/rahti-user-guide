@@ -79,7 +79,7 @@ E-Mail | servicedesk@csc.fi
 Webpage and contact form | https://research.csc.fi/cloud-computing https://research.csc.fi/support
 Response time target | Within Three Working Days
 
-###  Incident handling
+### Incident handling
 
 Disruptions to the agreed service functionality or quality will be handled
 according to an appropriate priority based on the impact and urgency of the
@@ -161,10 +161,12 @@ following rules apply:
 
 1. First contact shall be established, preferably by e-Mail, to Contact for Customers address (See section [Communication,
 reporting and escalation](#communication-reporting-and-escalation)) explaining the reason for the complaint with a sensible level of detail and clarity. Please also include, if possible, the following information:
-    * Name of the service
-    * Date and time of the events
-    * Usernames of affected users
-    * Channel to use on following communications (If other is preferred)
+
+ * Name of the service
+ * Date and time of the events
+ * Usernames of affected users
+ * Channel to use on following communications (If other is preferred)
+
 2. CSC Service Desk will contact you back within three working days with information about the incident and which procedures will be adopted. 
 
 ## Information security & data protection
