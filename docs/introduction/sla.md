@@ -195,7 +195,7 @@ Additional responsibilities of the Service Provider are as follow:
 ## Customer responsibilities
 
 The Customer agrees to follow the [General Terms of Use for CSC's Services for
-Science](https://www.csc.fi/general-terms-of-use), [User policy and terms of use for the Rahti container cloud service](https://research.csc.fi/rahti) and [CSC’s Security Policy](http://www.csc.fi/security)
+Research](https://www.csc.fi/general-terms-of-use), [User policy and terms of use for the Rahti container cloud service](https://research.csc.fi/rahti) and [CSC’s Security Policy](http://www.csc.fi/security)
 
 ## Review
 
