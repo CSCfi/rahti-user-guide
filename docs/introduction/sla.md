@@ -60,7 +60,7 @@ Scheduled maintenances:
 
 ## Service components & dependencies
 
-The Rahti service is depends on the following services. The dependencies of these services are described in their respective service documentation.
+The Rahti service depends on the following services. The dependencies of these services are described in their respective service documentation.
 
  * The cPouta service
  * CSC user administration
@@ -68,7 +68,7 @@ The Rahti service is depends on the following services. The dependencies of thes
 
 ## Support
 
-Support to the services covered by the scope of this SLA are provided through
+Support for the services covered by the scope of this SLA are provided through
 CSC Service Desk channels and under CSC Service Desk policies:
 
 | CSC Service Desk ||
@@ -89,7 +89,7 @@ incident. In this context, the following general priority guidelines apply:
 2. Restoring normal service operation
 3. Restoring customer workloads where possible
 
-Response and resolution times are provided as service level targets (see section 6).
+Response and resolution times are provided as [Service level targets](#service-level-targets).
 
 ### Fulfilment of service requests
 
@@ -102,7 +102,7 @@ defined and will be fulfilled through the defined support channels:
  * Issues deploying workloads
  * Issues using workload templates
 
-Response and fulfilment times are provided as service level targets (see section 6).
+Response and fulfilment times are provided as [Service level targets](#service-level-targets).
 
 ## Service level targets
 
@@ -195,7 +195,7 @@ Additional responsibilities of the Service Provider are as follow:
 ## Customer responsibilities
 
 The Customer agrees to follow the [General Terms of Use for CSC's Services for
-Science](https://www.csc.fi/general-terms-of-use), [Terms of use for the Rahti container cloud service](https://research.csc.fi/rahti) and [CSC’s Security Policy](http://www.csc.fi/security)
+Science](https://www.csc.fi/general-terms-of-use), [User policy and terms of use for the Rahti container cloud service](https://research.csc.fi/rahti) and [CSC’s Security Policy](http://www.csc.fi/security)
 
 ## Review
 
@@ -209,14 +209,14 @@ and of this SLA at planned intervals according to the following rules:
 
 For the purpose of this SLA, the following terms and definitions apply:
 
-SLA – Service Level Agreement (this document)
-
-Response time – Time spent between the arrival of a customer’s support request
+ * SLA: Service Level Agreement (this document)
+ * Response time: Time spent between the arrival of a customer’s support request
 and the first response from CSC Staff
-
-Working days – Monday to Friday (Excluding Finnish public holidays)
-
-Working hours – as defined in https://www.csc.fi/en/web/guest/customer-service
+ * Working days: Monday to Friday (Excluding Finnish public holidays)
+ * Working hours: as defined in https://www.csc.fi/en/web/guest/customer-service
+ * *Rahti container cloud service ("Rahti")*: a cloud platform that can be used by *Users* to run their own *User Applications*.
+ * *Rahti User ("User")*: a user of *Rahti*.
+ * *User Application*: an application running in *Rahti* managed by one or more *Users*. 
 
 An extended list of term definitions adopted on this document can be found in
 the [FitSM-0: Overview and vocabulary document](https://fitsm.itemo.org/wp-content/uploads/sites/3/2018/05/FitSM-0_Overview_and_vocabulary.pdf).
