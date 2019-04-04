@@ -283,3 +283,84 @@ Webhook GitHub:
 Finally, the GitHub WebHook payload url is the url above with `<secret>`
 replaced with base64 decoded string of the value of `data.WebHookSecretKey`
 above and the content type is `application/json`.
+
+## Custom domain names and secure transport
+
+Custom domain names and HTTPS secure data transport are implemented in the
+Route object level. They are controlled with the keywords `spec.host` and
+`spec.tls`.
+
+The public DNS entry of the custom domain name should point to public IP of the
+domain `rahtiapp.fi` (currently `193.167.189.101`) and the custom DNS name is
+placed in the `spec.host` entry of the Route object:
+
+*`route-with-dns.yaml`*:
+
+```yaml
+apiVersion: v1
+kind: Route
+metadata:
+  labels:
+    app: serveapp
+  name: myservice
+spec:
+  host: my-custom-dns-name.replace.this.com
+  to:
+    kind: Service
+    name: serve
+    weight: 100
+```
+
+The TLS certificates and private keys are placed in the `spec.tls` field, for
+example:
+
+```yaml
+apiVersion: v1
+kind: Route
+metadata:
+  labels:
+    app: serveapp
+  name: myservice
+spec:
+  host: my-custom-dns-name.replace.this.com
+  to:
+    kind: Service
+    name: serve
+    weight: 100
+  tls:
+    certificate: |-
+      -----BEGIN CERTIFICATE-----
+      ...
+      -----END CERTIFICATE-----
+      -----BEGIN CERTIFICATE-----
+      ...
+      -----END CERTIFICATE-----
+    insecureEdgeTerminationPolicy: Redirect
+    key: |-
+      -----BEGIN PRIVATE KEY-----
+      ...
+      -----END PRIVATE KEY-----
+    termination: edge
+```
+
+This definition will create a Route with the private key placed in
+`spec.tls.key` and the certificates placed in `spec.tls.certificate`. Furthermore,
+HTTP traffic is redirected due to `Redirect` setting in
+`spec.tls.insecureEdgeTerminationPolicy` and TLS termination happens at the
+Route object, in the sense that traffic coming from Service `serve` is assumed
+to be non-encrypted (`spec.tls.termination: edge`). Other termination policies
+include:
+
+* `passthrough`: Do not re-encrypt at Route
+* `reencrypt`: Decrypt and re-encrypt at Route
+
+!!! Hint
+
+    letsencrypt.org provides free and open certificates. Routes can be
+    automated to be secure ones with a third party
+    [openshift-acme controller](https://github.com/tnozicka/openshift-acme)
+    by annotating the Route objects.
+
+    Another way of utilizing the certificates provided by Let's Encrypt's is to
+    use the [`certbot`](https://certbot.eff.org/) tool on the debug console and
+    renewing the certificate with, e.g., CronJob controller.
