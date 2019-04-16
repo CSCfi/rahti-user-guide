@@ -290,9 +290,8 @@ Custom domain names and HTTPS secure data transport are implemented in the
 Route object level. They are controlled with the keywords `spec.host` and
 `spec.tls`.
 
-The public DNS entry of the custom domain name should point to public IP of the
-domain `rahtiapp.fi` (currently `193.167.189.101`) and the custom DNS name is
-placed in the `spec.host` entry of the Route object:
+The public DNS CNAME record of the custom domain name should point to `rahtiapp.fi`
+and the custom DNS name is placed in the `spec.host` entry of the Route object:
 
 *`route-with-dns.yaml`*:
 
@@ -328,6 +327,8 @@ spec:
     name: serve
     weight: 100
   tls:
+    insecureEdgeTerminationPolicy: Redirect
+    termination: edge
     certificate: |-
       -----BEGIN CERTIFICATE-----
       ...
@@ -335,24 +336,30 @@ spec:
       -----BEGIN CERTIFICATE-----
       ...
       -----END CERTIFICATE-----
-    insecureEdgeTerminationPolicy: Redirect
     key: |-
       -----BEGIN PRIVATE KEY-----
       ...
       -----END PRIVATE KEY-----
-    termination: edge
 ```
 
 This definition will create a Route with the private key placed in
-`spec.tls.key` and the certificates placed in `spec.tls.certificate`. Furthermore,
-HTTP traffic is redirected due to `Redirect` setting in
-`spec.tls.insecureEdgeTerminationPolicy` and TLS termination happens at the
-Route object, in the sense that traffic coming from Service `serve` is assumed
+`spec.tls.key` and the certificates placed in `spec.tls.certificate`. In this example,
+the HTTP traffic is redirected to use the HTTPS protocol due to `Redirect` setting in
+`spec.tls.insecureEdgeTerminationPolicy` and the TLS termination is handled by the
+Route object, in the sense that the traffic coming from the Service `serve` is assumed
 to be non-encrypted (`spec.tls.termination: edge`). Other termination policies
 include:
 
-* `passthrough`: Do not re-encrypt at Route
-* `reencrypt`: Decrypt and re-encrypt at Route
+* `passthrough`: Assume that the TLS-connection is terminated internally at the
+  Pod and just forward the encrypted traffic
+* `reencrypt`: Terminate the TLS-connection at the Router and open another
+  secure connection which must be terminated at the Pod
+
+!!! Caution
+
+    Always treat contents of the field `spec.tls.key` in the Route objects with
+    special case, since the private TLS key should be never exposed to
+    non-trusted parties.
 
 !!! Hint
 
