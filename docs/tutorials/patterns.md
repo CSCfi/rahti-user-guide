@@ -283,3 +283,91 @@ Webhook GitHub:
 Finally, the GitHub WebHook payload url is the url above with `<secret>`
 replaced with base64 decoded string of the value of `data.WebHookSecretKey`
 above and the content type is `application/json`.
+
+## Custom domain names and secure transport
+
+Custom domain names and HTTPS secure data transport are implemented in the
+Route object level. They are controlled with the keywords `spec.host` and
+`spec.tls`.
+
+The public DNS CNAME record of the custom domain name should point to `rahtiapp.fi`
+and the custom DNS name is placed in the `spec.host` entry of the Route object:
+
+*`route-with-dns.yaml`*:
+
+```yaml
+apiVersion: v1
+kind: Route
+metadata:
+  labels:
+    app: serveapp
+  name: myservice
+spec:
+  host: my-custom-dns-name.replace.this.com
+  to:
+    kind: Service
+    name: serve
+    weight: 100
+```
+
+The TLS certificates and private keys are placed in the `spec.tls` field, for
+example:
+
+```yaml
+apiVersion: v1
+kind: Route
+metadata:
+  labels:
+    app: serveapp
+  name: myservice
+spec:
+  host: my-custom-dns-name.replace.this.com
+  to:
+    kind: Service
+    name: serve
+    weight: 100
+  tls:
+    insecureEdgeTerminationPolicy: Redirect
+    termination: edge
+    certificate: |-
+      -----BEGIN CERTIFICATE-----
+      ...
+      -----END CERTIFICATE-----
+      -----BEGIN CERTIFICATE-----
+      ...
+      -----END CERTIFICATE-----
+    key: |-
+      -----BEGIN PRIVATE KEY-----
+      ...
+      -----END PRIVATE KEY-----
+```
+
+This definition will create a Route with the private key placed in
+`spec.tls.key` and the certificates placed in `spec.tls.certificate`. In this example,
+the HTTP traffic is redirected to use the HTTPS protocol due to `Redirect` setting in
+`spec.tls.insecureEdgeTerminationPolicy` and the TLS termination is handled by the
+Route object, in the sense that the traffic coming from the Service `serve` is assumed
+to be non-encrypted (`spec.tls.termination: edge`). Other termination policies
+include:
+
+* `passthrough`: Assume that the TLS-connection is terminated internally at the
+  Pod and just forward the encrypted traffic
+* `reencrypt`: Terminate the TLS-connection at the Router and open another
+  secure connection which must be terminated at the Pod
+
+!!! Caution
+
+    Always treat contents of the field `spec.tls.key` in the Route objects with
+    special case, since the private TLS key should be never exposed to
+    non-trusted parties.
+
+!!! Hint
+
+    letsencrypt.org provides free and open certificates. Routes can be
+    automated to be secure ones with a third party
+    [openshift-acme controller](https://github.com/tnozicka/openshift-acme)
+    by annotating the Route objects.
+
+    Another way of utilizing the certificates provided by Let's Encrypt's is to
+    use the [`certbot`](https://certbot.eff.org/) tool on the debug console and
+    renewing the certificate with, e.g., CronJob controller.
