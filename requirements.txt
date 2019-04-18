@@ -1,24 +1,23 @@
 # This is what we actually install
-mkdocs==0.17.2
-mdx-linkify==1.0
+mkdocs==0.17.5
+mdx-linkify==1.2
 mdx-environment==0.2.0
-yasha==4.1
+yasha==4.3
 
 # These are dependencies of the above
 backports-abc==0.5
-backports.ssl-match-hostname==3.5.0.1
-bleach==2.1.2
-certifi==2017.11.5
-click==6.7
-html5lib==1.0.1
-Jinja2==2.10
-livereload==2.5.1
-Markdown==2.6.10
-MarkupSafe==1.0
-pytoml==0.1.14
-PyYAML==3.12
+backports.ssl-match-hostname==3.7.0.1
+bleach==3.1.0
+certifi==2019.3.9
+Click==7.0
+Jinja2==2.10.1
+livereload==2.6.0
+Markdown==3.1
+MarkupSafe==1.1.1
+pytoml==0.1.20
+PyYAML==5.1
 singledispatch==3.4.0.3
-six==1.11.0
-tornado==4.5.2
+six==1.12.0
+tornado==4.5.3
 webencodings==0.5.1
-xmltodict==0.11.0
+xmltodict==0.12.0
