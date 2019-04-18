@@ -27,6 +27,7 @@ environment variables:
 | OSO_WEB_UI_URL       | The URL of the OpenShift web UI.                    |
 | SUI_INTEGRATION_DONE | Whether it is possible to apply for access via SUI. |
 | SYSTEM_NAME          | The name of the OpenShift system.                   |
+| SHOW_AGREEMENTS      | Whether to show agreements like the ToU and the SLA.|
 
 When these are set in the environment, you can create a config file for mkdocs:
 
@@ -60,13 +61,15 @@ variables. For example:
 
 ```bash
 sudo docker build -t rahti-user-guide \
+  --build-arg BILLING_ENABLED=0 \
   --build-arg SYSTEM_NAME=Rahti \
   --build-arg OSO_WEB_UI_URL=https://rahti.csc.fi:8443 \
   --build-arg OSO_REGISTRY_URL=https://registry-console.rahti.csc.fi \
   --build-arg LDAP_LOGIN_SUPPORT=1 \
   --build-arg GITLAB_LOGIN_SUPPORT=0 \
   --build-arg SUI_INTEGRATION_DONE=1 \
-  --build-arg OPENSHIFT_VERSION=3.9 .
+  --build-arg OPENSHIFT_VERSION=3.11 \
+  --build-arg SHOW_AGREEMENTS=1 .
 ```
 
 Then run the container:
@@ -89,13 +92,15 @@ Then run `oc new-app` to create the user guide deployment:
 
 ```bash
 oc new-app \
+  --build-env BILLING_ENABLED=0 \
   --build-env SYSTEM_NAME=Rahti \
   --build-env OSO_WEB_UI_URL=https://rahti.csc.fi:8443 \
   --build-env OSO_REGISTRY_URL=https://registry-console.rahti.csc.fi \
   --build-env LDAP_LOGIN_SUPPORT=1 \
   --build-env GITLAB_LOGIN_SUPPORT=0 \
   --build-env SUI_INTEGRATION_DONE=1 \
-  --build-env OPENSHIFT_VERSION=3.9 \
+  --build-env OPENSHIFT_VERSION=3.11 \
+  --build-env SHOW_AGREEMENTS=1 .
   https://github.com/CSCfi/rahti-user-guide.git#master
 ```
 
