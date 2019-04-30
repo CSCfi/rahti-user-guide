@@ -1,13 +1,14 @@
 # Scope and description of the service
 
+!!! note
+    Last updated 30.4.2019
+
 \env{SYSTEM_NAME} is a cloud computing service that allows Users to host
 applications and make them accessible over the web. The \env{SYSTEM_NAME}
-service is based on OKD, which is a distribution of Kubernetes. The
-\env{SYSTEM_NAME} service provides, but is not necessarily limited to, these
-features:
+service is based on OKD, which is a distribution of Kubernetes. The main
+features of \env{SYSTEM_NAME} are:
 
-* Hosting of User Applications comprised of container instances and groups of
-  container instances
+* Hosting of containerized applications
 * Storage services
 * Virtual networks for connecting container instances
 * Load balancing of traffic to User Applications

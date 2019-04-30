@@ -1,5 +1,8 @@
 # User policy and terms of use for the Rahti container cloud service
 
+!!! note
+    Last updated 30.4.2019
+
 This section describes additional terms and examples specific to the *Rahti
 container cloud service* (hereafter referred to as "*Rahti*"). Please also read the
 [General Terms Of Use for CSC's Services for Research
