@@ -1,16 +1,17 @@
 # Scope and description of the service
 
-The \env{SYSTEM_NAME} container cloud service is a cloud computing service. The
-\env{SYSTEM_NAME} service is based on OKD, which is a distribution of
-Kubernetes. The \env{SYSTEM_NAME} service allows its Users to run their own
-containerized applications on top of it. The \env{SYSTEM_NAME} service provides,
-but is not necessarily limited to, these resources:
+\env{SYSTEM_NAME} is a cloud computing service that allows Users to host
+applications and make them accessible over the web. The \env{SYSTEM_NAME}
+service is based on OKD, which is a distribution of Kubernetes. The
+\env{SYSTEM_NAME} service provides, but is not necessarily limited to, these
+features:
 
 * Hosting of User Applications comprised of container instances and groups of
   container instances
 * Storage services
 * Virtual networks for connecting container instances
 * Load balancing of traffic to User Applications
+* An application catalog with templates for ready-to-use common applications
 * Features for replication, rolling updates, auto-recovery and auto-scaling of User Applications
 * Basic default domain name and TLS for hosted User Applications (under rahtiapp.fi)
 

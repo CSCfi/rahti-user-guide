@@ -52,12 +52,12 @@ purpose of the project.
 
 * Most *Content* is not backed up and it is the *Users'* responsibility to
   manage their own *Content*.
-* The servers used to host the *Rahti* service itself and metadata on resources
-  created in *Rahti* are backed up so we can restore *Rahti* in case of
-  failures.
 * The places where *Users* or *End Users* can store *Content* including persistent
-  volumes, container instances and local storage are not backed up. It is the
+  volumes, container file systems and local storage are not backed up. It is the
   *Users'* responsibility to make backups of *Content* as needed.
+* The configuration of the *Rahti* service itself and metadata on resources
+  created in *Rahti* are backed up in such a way that we can restore *Rahti* in
+  case of failures.
 
 ## Access to User Content
 
