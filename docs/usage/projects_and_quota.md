@@ -164,6 +164,18 @@ Membership. You can either give access rights to individuals users or groups by
 selecting either the Users or the Groups tab and clicking Edit Membership in the
 top right corner.
 
+Note that it is important to use the correct usernames when sharing projects
+with others. OpenShift allows you to freely enter any username and won't tell
+you if you've entered a non-existent username. The usernames are also case
+sensitive. You can find out what your username in OpenShift is from either the
+web interface or via the command line:
+
+1. In the web interface, click the question mark symbol in the top bar and
+   select "Command Line Tools". You can find your username above the text box
+   that has the login command.
+2. If you have an active command line session, you can use the `oc whoami`
+   command.
+
 \if{LDAP_LOGIN_SUPPORT}
 If you would like to share a project you've created with members of the same CSC
 computing project, you can do so by selecting the Groups tab, clicking Edit
