@@ -4,6 +4,7 @@ header-includes:
     - \usepackage{fancyhdr}
     - \usepackage{graphicx}
     - \pagestyle{fancy}
+    - \fancyhead[LO,LE]{}
     - \fancyhead[RO,RE]{\includegraphics[width=5cm]{logo.png}}
     - \fancyfoot[CO,CE]{\includegraphics[width=\textwidth]{footer.png}}
 ---
