@@ -134,10 +134,10 @@ Service reports regarding availability will be available from the servicedesk by
 For escalation and complaints, the defined contact point shall be used, and the following rules apply:
 
 1. First contact shall be established, preferably by email, to Contact for Users address (See section [Communication, reporting and escalation](#communication-reporting-and-escalation)) explaining the reason for the complaint with a sensible level of detail and clarity. Please also include, if possible, the following information:
-   * Name of the service
-   * Date and time of the events
-   * Usernames of affected Users
-   * Channel to use on following communications (if other is preferred)
+    * Name of the service
+    * Date and time of the events
+    * Usernames of affected Users
+    * Channel to use on following communications (if other is preferred)
 1. CSC Service Desk will contact you within three working days with information about the incident and which procedures will be adopted.
 
 ## Information security & data protection
