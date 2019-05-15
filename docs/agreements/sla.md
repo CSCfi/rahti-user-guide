@@ -1,8 +1,5 @@
 # Rahti Container Cloud Service Service Level Agreement
 
-!!! note
-    Last updated 30.4.2019
-
 ## General
 
 This Service Level Agreement (hereafter called "SLA") is made between you (the "User"), Rahti Container Cloud Service ("Rahti") and the service provider, CSC - IT Center for Science Ltd. ("CSC"), to cover the provision and support of the service as described hereafter. Amendments, comments and suggestions must be addressed using the communication channels defined in the section [Communication, reporting and escalation](#communication-reporting-and-escalation). The service provider retains the right to introduce changes to the service. If the User does not accept the changes, this service subscription can be terminated.
@@ -181,3 +178,8 @@ For the purpose of this SLA, the following terms and definitions apply:
 * *User Application*: an application running in *Rahti* managed by one or more *Users*.
 
 An extended list of term definitions adopted on this document can be found in the [FitSM-0: Overview and vocabulary document](https://fitsm.itemo.org/wp-content/uploads/sites/3/2018/05/FitSM-0_Overview_and_vocabulary.pdf).
+
+## Document revision
+
+This document was last updated 30.4.2019
+
