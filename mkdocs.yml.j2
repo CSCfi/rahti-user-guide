@@ -2,6 +2,7 @@ site_name: {{ 'SYSTEM_NAME' | env }} container cloud
 pages:
   - Home: index.md
   - Introduction:
+    - Service description: introduction/service_description.md
     - Background: introduction/background.md
     - Technical maturity: introduction/technical_maturity.md
     - Getting access: introduction/access.md
@@ -20,6 +21,11 @@ pages:
     - Design patterns: tutorials/patterns.md
   - Contact: contact.md
   - External documentation: ext_docs.md
+  {% if ('SHOW_AGREEMENTS' | env) == 'True' %}
+  - Agreements:
+    - Terms of Use: agreements/terms_of_use.md
+    - Service Level Agreement: agreements/sla.md
+  {% endif %}
 theme:
   name: readthedocs
   custom_dir: theme_customization/

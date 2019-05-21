@@ -6,26 +6,29 @@ This Service Level Agreement (hereafter called "SLA") is made between you (the "
 
 ## Scope and description of the service
 
-The Rahti container cloud service is a cloud computing service. The Rahti service is based on OKD, which is a distribution of Kubernetes. The Rahti service allows its Users to run their own containerized applications on top of it. The Rahti service provides, but is not necessarily limited to, these resources:
+Rahti is a cloud computing service that allows Users to host applications and
+make them accessible over the web. The Rahti service is based on OKD, which is a
+distribution of Kubernetes. The main features of Rahti are:
 
-* Hosting of User Applications comprised of container instances and groups of container instances
+* Hosting of containerized applications
 * Storage services
 * Virtual networks for connecting container instances
 * Load balancing of traffic to User Applications
+* An application catalog with templates for ready-to-use common applications
 * Features for replication, rolling updates, auto-recovery and auto-scaling of User Applications
 * Basic default domain name and TLS for hosted User Applications (under rahtiapp.fi)
 
-Users can manage their resources using a web interface accessible through a web browser and through a set of APIs which allow programmatic management of resources. In order to access and use the service the User must have a CSC user account.
+Users can manage their resources using a web interface accessible through a web
+browser and through a set of APIs which allow programmatic management of
+resources. In order to access and use the service the User must have a CSC user
+account.
 
-The User's applications are isolated from other Users’ applications from a network, storage and computational view.
-
-The Rahti service accounts for service usage based on the resources used. Up to date resource cost information is found in the [Rahti documentation](https://rahti.csc.fi).
+The User's applications are isolated from other Users’ applications from a
+network, storage and computational view.
 
 ## Service hours & exceptions
 
 The service is designed to run continuously. However, the following exceptions apply:
-
-Scheduled maintenances:
 
 * Planned service breaks - announced to Users at least three weeks in advance.
 * Downtimes caused due to upgrades for fixing critical security issues are not considered SLA violations. In the case of critical security upgrades CSC reserves the right to apply the upgrades with minimal notice.
@@ -82,10 +85,10 @@ The Rahti service level targets adhere to JHS 174 as follows:
 
 Service level targets ||
 --- | ---
-Service Level | B (normal)
-Service time / incident handling | P2 Weekdays 7.00-19.00
-Availability | K2 99%
-Response | V2 reaction: 2h, solution: 1 BD
+Service Level | A (basic)
+Service time / incident handling | P1 Weekdays 8.00-16.00
+Availability | K1 97%
+Response | V1 reaction: 4h, solution: 2 BD
 
 Availability is calculated by subtracting the service break time from the ideal availability during service time. This information is obtained from internal monitoring systems and defined as Users’ ability to manage their User Applications, and the availability of the User Applications.
 
@@ -128,10 +131,10 @@ Service reports regarding availability will be available from the servicedesk by
 For escalation and complaints, the defined contact point shall be used, and the following rules apply:
 
 1. First contact shall be established, preferably by email, to Contact for Users address (See section [Communication, reporting and escalation](#communication-reporting-and-escalation)) explaining the reason for the complaint with a sensible level of detail and clarity. Please also include, if possible, the following information:
-   * Name of the service
-   * Date and time of the events
-   * Usernames of affected Users
-   * Channel to use on following communications (if other is preferred)
+    * Name of the service
+    * Date and time of the events
+    * Usernames of affected Users
+    * Channel to use on following communications (if other is preferred)
 1. CSC Service Desk will contact you within three working days with information about the incident and which procedures will be adopted.
 
 ## Information security & data protection
@@ -175,3 +178,8 @@ For the purpose of this SLA, the following terms and definitions apply:
 * *User Application*: an application running in *Rahti* managed by one or more *Users*.
 
 An extended list of term definitions adopted on this document can be found in the [FitSM-0: Overview and vocabulary document](https://fitsm.itemo.org/wp-content/uploads/sites/3/2018/05/FitSM-0_Overview_and_vocabulary.pdf).
+
+## Document revision
+
+This document was last updated 30.4.2019
+
