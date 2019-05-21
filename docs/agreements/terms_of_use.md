@@ -1,8 +1,5 @@
 # User policy and terms of use for the Rahti container cloud service
 
-!!! note
-    Last updated 30.4.2019
-
 This section describes additional terms and examples specific to the *Rahti
 container cloud service* (hereafter referred to as "*Rahti*"). Please also read the
 [General Terms Of Use for CSC's Services for Research
@@ -87,3 +84,8 @@ For *Rahti* this means that:
 * As with any cloud service, *User Applications* in *Rahti* and their data can
   be lost or corrupted due to hardware failure, system error, administrator
   error or user errors.
+
+## Document revision
+
+This document was last updated 30.4.2019
+
