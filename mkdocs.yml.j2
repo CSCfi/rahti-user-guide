@@ -2,7 +2,9 @@ site_name: {{ 'SYSTEM_NAME' | env }} container cloud
 pages:
   - Home: index.md
   - Introduction:
+    {% if ('SHOW_AGREEMENTS' | env) != 'True' %}
     - Service description: introduction/service_description.md
+    {% endif %}
     - Background: introduction/background.md
     - Technical maturity: introduction/technical_maturity.md
     - Getting access: introduction/access.md
