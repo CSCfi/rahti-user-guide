@@ -29,8 +29,8 @@ My CSC customer portal:
 5. CSC will contact you once your application has been accepted.
 
 
-In case you don't already have computing project, you can create a new one using 
-the My CSC customer portal and use it to apply for \env{SYSTEM_NAME} access.
+If you don't have a suitable computing project for your \env{SYSTEM_NAME} use, 
+you can create one in the the My CSC customer portal.
 
 #### Creating a new computing project
 
