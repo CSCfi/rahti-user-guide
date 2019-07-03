@@ -12,29 +12,36 @@ will need:
 If you already have access to some other CSC computing system like cPouta, Sisu
 or Taito then you already have a computing project. You can use the same project
 with \env{SYSTEM_NAME} as well if you want.
-
-You can get information about getting a new project on the [User Accounts and
-Projects](https://research.csc.fi/accounts-and-projects) page on the
-research.csc.fi web pages.
-
-Once you have a CSC user account and a computing project, you can send a message
-with the name of your computing project to
-[rahti-support@csc.fi](mailto:rahti-support@csc.fi) to apply for access.
 \endif
 
 \if{SUI_INTEGRATION_DONE}
-You can apply for \env{SYSTEM_NAME} access for a computing project in the
-Scientist's User Interface (SUI):
+Alternatively, you can create a new computing project using the My CSC customer 
+portal and use it to apply for \env{SYSTEM_NAME} access.
 
-1. Login to SUI with your CSC account.
-2. Go to the
-   [Resources and Applications](https://sui.csc.fi/group/sui/resources-and-applications/)
-   page.
-3. Select the \env{SYSTEM_NAME} service under *All Resources -> Computing*
-4. Select the project for which you want \env{SYSTEM_NAME} access using the
-   *Project Selection* dropdown menu in the *Application Form*.
-5. Read and accept the *Terms of Use* and press *Send*.
-6. CSC will contact you once your application has been accepted.
+#### Creating a new computing project
+
+The My CSC customer portal makes it possible to create a new computing project:
+
+1. Login to [My CSC](https://my.csc.fi) with your CSC account.
+2. Go to the [My Projects](https://my.csc.fi/myProjects) page.
+3. Scroll to the bottom of the page and click on the
+[Create a new project](https://my.csc.fi/myProjects/create-project) button.
+4. Give your project a desired name, description, project type and click
+on *Create project*.
+5. CSC will contact you once your project has been successfully created.
+
+#### Applying for access
+
+You can apply for \env{SYSTEM_NAME} access for a computing project in the
+My CSC customer portal:
+
+1. Login to [My CSC](https://my.csc.fi) with your CSC account.
+2. Go to the [My Projects](https://my.csc.fi/myProjects) page.
+3. Select the project for which you want \env{SYSTEM_NAME} from the
+   projects list.
+4. From the list of CSC services, click on \env{SYSTEM_NAME}'s dropdown menu.
+4. Read and accept the *Terms of Use* and press *Apply for access*.
+5. CSC will contact you once your application has been accepted.
 
 Please contact [rahti-support@csc.fi](mailto:rahti-support@csc.fi) in case you
 need assistance.
