@@ -7,7 +7,8 @@
 \endif
 
 !!! note
-    Need an account? Have a look at "<a href="./introduction/access">Getting access</a>".
+
+    Need an account? Have a look at [Getting access](\env{DOCS_PREFIX}/introduction/access/).
     If you already have an account, you can access \env{SYSTEM_NAME} via the buttons above.
 
 <!-- Welcome to the \env{SYSTEM_NAME} container cloud!  -->
@@ -16,7 +17,7 @@
 <!-- orchestration systems such as Kubernetes or OpenShift, you could start by -->
 <!-- reading a generic introduction to the topic: -->
 <!--  -->
-<!--   * [Background on container orchestration](\env{DOCS_PREFIX}/introduction/background/) -->
+  <!-- * [Background on container orchestration](\env{DOCS_PREFIX}/introduction/background/) -->
 <!--  -->
 <!-- If you are already familiar with container technology and Kubernetes/OpenShift, -->
 <!-- you could move directly to the instructions for getting access to \env{SYSTEM_NAME}: -->
