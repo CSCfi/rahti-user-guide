@@ -1,29 +1,29 @@
 site_name: {{ 'SYSTEM_NAME' | env }} container cloud
 pages:
   - Home: index.md
-  - Introduction:
-    {% if ('SHOW_AGREEMENTS' | env) != 'True' %}
-    - Service description: introduction/service_description.md
-    {% endif %}
-    - Background: introduction/background.md
-    - Technical maturity: introduction/technical_maturity.md
-    - Getting access: introduction/access.md
+  # - Introduction:
+    # {% if ('SHOW_AGREEMENTS' | env) != 'True' %}
+    # - Service description: introduction/service_description.md
+    # {% endif %}
+    # - Background: introduction/background.md
+  # - Technical maturity: introduction/technical_maturity.md
+    # - Getting access: introduction/access.md
     {% if ('BILLING_ENABLED' | env) == 'True' %}
-    - Billing: introduction/billing.md
+  - Billing: introduction/billing.md
     {% endif %}
-  - Usage:
-    - Getting started: usage/getting_started.md
-    - Projects and quota: usage/projects_and_quota.md
-    - Command line tool usage: usage/cli.md
-    - Security guide: usage/security-guide.md
-  - Tutorials:
-    - Deploying applications from web console: tutorials/basic-console.md
-    - Core objects: tutorials/elemental_tutorial.md
-    - Utility objects: tutorials/advanced_tutorial.md
-    - Design patterns: tutorials/patterns.md
-  - Template documentation: template-docs.md
+  # - Usage:
+  #   - Getting started: usage/getting_started.md
+  #   - Projects and quota: usage/projects_and_quota.md
+  #   - Command line tool usage: usage/cli.md
+  #   - Security guide: usage/security-guide.md
+  # - Tutorials:
+  #   - Deploying applications from web console: tutorials/basic-console.md
+  #   - Core objects: tutorials/elemental_tutorial.md
+  #   - Utility objects: tutorials/advanced_tutorial.md
+  #   - Design patterns: tutorials/patterns.md
+  # - Template documentation: template-docs.md
   - Contact: contact.md
-  - External documentation: ext_docs.md
+  # - External documentation: ext_docs.md
   {% if ('SHOW_AGREEMENTS' | env) == 'True' %}
   - Agreements:
     - Terms of Use: agreements/terms_of_use.md
@@ -45,3 +45,4 @@ extra:
   system_name: {{ 'SYSTEM_NAME' | env }}
   oso_web_ui_url: {{ 'OSO_WEB_UI_URL' | env }}
   oso_registry_url: {{ 'OSO_REGISTRY_URL' | env }}
+  docs_prefix: {{ 'DOCS_PREFIX' | env }}
