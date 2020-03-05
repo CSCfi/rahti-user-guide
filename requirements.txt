@@ -1,5 +1,6 @@
 # This is what we actually install
 mkdocs==1.0.4
+mkdocs-redirects==1.0.0
 mdx-linkify==1.2
 mdx-environment==0.2.0
 yasha==4.3
