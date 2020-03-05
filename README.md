@@ -61,15 +61,15 @@ variables. For example:
 
 ```bash
 sudo docker build -t rahti-user-guide \
-  --build-arg BILLING_ENABLED=0 \
+  --build-arg BILLING_ENABLED=True \
   --build-arg SYSTEM_NAME=Rahti \
   --build-arg OSO_WEB_UI_URL=https://rahti.csc.fi:8443 \
   --build-arg OSO_REGISTRY_URL=https://registry-console.rahti.csc.fi \
-  --build-arg LDAP_LOGIN_SUPPORT=1 \
+  --build-arg LDAP_LOGIN_SUPPORT=True \
   --build-arg GITLAB_LOGIN_SUPPORT=0 \
-  --build-arg SUI_INTEGRATION_DONE=1 \
+  --build-arg SUI_INTEGRATION_DONE=True \
   --build-arg OPENSHIFT_VERSION=3.11 \
-  --build-arg SHOW_AGREEMENTS=1 .
+  --build-arg SHOW_AGREEMENTS=True .
 ```
 
 Then run the container:
@@ -92,15 +92,15 @@ Then run `oc new-app` to create the user guide deployment:
 
 ```bash
 oc new-app \
-  --build-env BILLING_ENABLED=0 \
+  --build-env BILLING_ENABLED=True \
   --build-env SYSTEM_NAME=Rahti \
   --build-env OSO_WEB_UI_URL=https://rahti.csc.fi:8443 \
   --build-env OSO_REGISTRY_URL=https://registry-console.rahti.csc.fi \
-  --build-env LDAP_LOGIN_SUPPORT=1 \
+  --build-env LDAP_LOGIN_SUPPORT=True \
   --build-env GITLAB_LOGIN_SUPPORT=0 \
-  --build-env SUI_INTEGRATION_DONE=1 \
+  --build-env SUI_INTEGRATION_DONE=True \
   --build-env OPENSHIFT_VERSION=3.11 \
-  --build-env SHOW_AGREEMENTS=1 .
+  --build-env SHOW_AGREEMENTS=True .
   https://github.com/CSCfi/rahti-user-guide.git#master
 ```
 
