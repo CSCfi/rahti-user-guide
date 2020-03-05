@@ -1,6 +1,6 @@
 #!/bin/bash
 
-export BILLING_ENABLED=False
+export BILLING_ENABLED=True
 export GITLAB_LOGIN_SUPPORT=False
 export LDAP_LOGIN_SUPPORT=False
 export OPENSHIFT_VERSION=3.11
