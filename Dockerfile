@@ -1,4 +1,4 @@
-FROM centos:7
+FROM centos:8
 
 LABEL maintainer="CSC Rahti Team <rahti-team@postit.csc.fi>"
 
@@ -28,7 +28,7 @@ ENV DOCS_PREFIX=${DOCS_PREFIX}
 ENV ROOT_GROUP_DIRS='/var/run /var/log/nginx /var/lib/nginx'
 
 RUN yum -y install epel-release &&\
-    yum -y install nginx python-pip python &&\
+    yum -y install nginx python3-pip python3 &&\
     yum clean all &&\
     chmod g+rwx /var/run /var/log/nginx
 
@@ -39,7 +39,7 @@ COPY . /tmp
 
 WORKDIR /tmp
 
-RUN pip install --no-cache-dir -r requirements.txt && \
+RUN pip3 install --no-cache-dir -r requirements.txt && \
     sh -c /tmp/make_config.sh && \
     mkdocs build -d /usr/share/nginx/html
 

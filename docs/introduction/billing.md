@@ -10,8 +10,9 @@ services which are available for use.
 ## Billing model
 
 ------------------------------------------------------------------------------------------------------------------------
-**NOTE**: Using \env{SYSTEM_NAME} does not consume **CSC Billing Units** yet as these calculations are not in effect.
-The aim of this document is to inform our users on what to expect in terms of cost of resources.
+
+**NOTE**: Starting from 1.02.2020, using \env{SYSTEM_NAME} consumes **CSC Billing Units**.
+
 ------------------------------------------------------------------------------------------------------------------------
 
 
