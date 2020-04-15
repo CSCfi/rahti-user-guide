@@ -23,6 +23,7 @@ ENV OPENSHIFT_VERSION=${OPENSHIFT_VERSION}
 ENV BILLING_ENABLED=${BILLING_ENABLED}
 ENV SHOW_AGREEMENTS=${SHOW_AGREEMENTS}
 ENV DOCS_PREFIX=${DOCS_PREFIX}
+ENV LANG=en_US.UTF-8
 
 # These need to be owned and writable by the root group in OpenShift
 ENV ROOT_GROUP_DIRS='/var/run /var/log/nginx /var/lib/nginx'
