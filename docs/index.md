@@ -8,7 +8,7 @@
 
 !!! note
 
-    Need an account? Have a look at [Getting access](\env{DOCS_PREFIX}/introduction/access/).
+    Need an account? Have a look at [Getting access](\env{DOCS_PREFIX}/access/).
     If you already have an account, you can access \env{SYSTEM_NAME} via the buttons above.
 
 <!-- Welcome to the \env{SYSTEM_NAME} container cloud!  -->
