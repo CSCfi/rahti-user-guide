@@ -2,8 +2,8 @@
 
 This section describes additional terms and examples specific to the *Rahti
 container cloud service* (hereafter referred to as "*Rahti*"). Please also read the
-[General Terms Of Use for CSC's Services for Research
-("TOU")](https://www.csc.fi/general-terms-of-use). By using *Rahti* you are
+[General Terms of Use for CSC's Services for Research and Education
+("TOU")](https://research.csc.fi/general-terms-of-use). By using *Rahti* you are
 agreeing to both.
 
 ## Terminology
