@@ -16,10 +16,6 @@ ENV CLUSTER_LOGIN_URL_OIDCIDP=${CLUSTER_LANDING_PAGE_ENV_VERSION}
 # These need to be owned and writable by the root group in OpenShift
 ENV ROOT_GROUP_DIRS='/var/run /var/log/nginx /var/lib/nginx'
 
-RUN cd /etc/yum.repos.d/
-RUN sed -i 's/mirrorlist/#mirrorlist/g' /etc/yum.repos.d/CentOS-*
-RUN sed -i 's|#baseurl=http://mirror.centos.org|baseurl=http://vault.centos.org|g' /etc/yum.repos.d/CentOS-*
-
 RUN yum -y install epel-release &&\
     yum -y install nginx python3-pip python3 &&\
     yum clean all &&\
