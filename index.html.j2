@@ -51,8 +51,6 @@
                             <c-button href="{{ 'CLUSTER_LOGIN_URL_OIDCIDP' | env }}">Login page</c-button>
                         </c-card-actions>
                     </c-card>
-                    {% if cluster_landing_page_secondary_env %}
-                    <!-- Show secondary environment only in production -->
                     <c-card class="card-2">
                         <c-card-title>Rahti</c-card-title>
                         <c-card-content>{{ 'CLUSTER_LANDING_PAGE_SECONDARY_ENV_VERSION' | env }}</c-card-content>
@@ -61,7 +59,6 @@
                             <c-button href="https://registry-console.rahti.csc.fi/">Registry login</c-button>
                         </c-card-actions>
                     </c-card>
-                    {% endif %}
                     <c-card class="card-3">
                         <c-card-title>News</c-card-title>
                         <c-card-content>
