@@ -24,7 +24,7 @@ RUN yum -y install epel-release &&\
 RUN chgrp -R root ${ROOT_GROUP_DIRS} &&\
     chmod -R g+rwx ${ROOT_GROUP_DIRS}
 
-COPY ./static /usr/share/nginx/html
+COPY ./static /usr/share/nginx/html/static
 COPY ./index.html.j2 /tmp
 COPY ./make_config.sh /tmp
 COPY ./requirements.txt /tmp
