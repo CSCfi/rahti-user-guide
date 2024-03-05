@@ -62,14 +62,7 @@
                     <c-card class="card-3">
                         <c-card-title>News</c-card-title>
                         <c-card-content>
-                              <p>
-                              Billing will start on Rahti 2 on 17.4.2023. New billing model is described in
-                              <a href="https://csc-guide-preview.rahtiapp.fi/origin/Rahti4-migration/cloud/rahti4/billing/"
-                                aria-label="billing docs">billing docs</a>.
-                              </p>
-                              <p>Glusterfs storage class will be deprecated in Rahti 2. Users should migrate to
-                              alternative storage options (cinder, Allas, or project-specific custom solutions).
-                              </p>
+                            {{ 'CLUSTER_LANDING_PAGE_NEWS' | env }}
                         </c-card-content>
                     </c-card>
                 </div>
