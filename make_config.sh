@@ -8,4 +8,4 @@ set -e
 mkdir -p /usr/share/nginx/html/agreements/terms_of_use/
 
 yasha -o /usr/share/nginx/html/index.html index.html.j2
-yasha -o /usr/share/nginx/html/agreements/terms_of_use/index.html terms_of_use.html.j2
+yasha -o /usr/share/nginx/html/agreements/terms_of_use/terms_of_use.html terms_of_use.html.j2

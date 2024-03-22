@@ -4,7 +4,7 @@ The landing page for the new version of Rahti system.
 
 ## Editing the landing  page
 
-Changes can be made directly to the [html template](index.html.j2).
+Changes can be made directly to the [html template](html/index.html.j2).
 
 
 Before parsing the template, you will need to set some
