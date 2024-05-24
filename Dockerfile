@@ -29,7 +29,7 @@ ENV LANG=en_US.UTF-8
 ENV ROOT_GROUP_DIRS='/var/run /var/log/nginx /var/lib/nginx'
 
 RUN yum -y install epel-release &&\
-    yum -y install nginx python3-pip python3 &&\
+    yum -y install nginx python39-pip python39 &&\
     yum clean all &&\
     chmod g+rwx /var/run /var/log/nginx
 
