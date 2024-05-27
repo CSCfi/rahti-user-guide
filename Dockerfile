@@ -23,6 +23,7 @@ RUN chgrp -R root ${ROOT_GROUP_DIRS} &&\
     chmod -R g+rwx ${ROOT_GROUP_DIRS}
 
 COPY ./static /usr/share/nginx/html/static
+COPY html/footer.html /tmp
 COPY html/index.html.j2 /tmp
 COPY html/terms_of_use.html.j2 /tmp
 COPY html/sla.html.j2 /tmp
