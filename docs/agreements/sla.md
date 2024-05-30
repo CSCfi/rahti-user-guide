@@ -14,6 +14,7 @@ distribution of Kubernetes. The main features of Rahti are:
 * Storage services
 * Virtual networks for connecting container instances
 * Load balancing of traffic to User Applications
+* Container image registry.
 * An application catalog with templates for ready-to-use common applications
 * Features for replication, rolling updates, auto-recovery and auto-scaling of User Applications
 * Basic default domain name and TLS for hosted User Applications (under 2.rahtiapp.fi)
