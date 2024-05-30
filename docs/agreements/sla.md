@@ -1,4 +1,4 @@
-# Rahti Container Cloud Service Service Level Agreement
+# Rahti (2) Container Cloud Service Service Level Agreement
 
 ## General
 
@@ -16,7 +16,7 @@ distribution of Kubernetes. The main features of Rahti are:
 * Load balancing of traffic to User Applications
 * An application catalog with templates for ready-to-use common applications
 * Features for replication, rolling updates, auto-recovery and auto-scaling of User Applications
-* Basic default domain name and TLS for hosted User Applications (under rahtiapp.fi)
+* Basic default domain name and TLS for hosted User Applications (under 2.rahtiapp.fi)
 
 Users can manage their resources using a web interface accessible through a web
 browser and through a set of APIs which allow programmatic management of
@@ -43,6 +43,8 @@ The Rahti service depends on the following services:
 * The cPouta service
 * CSC user administration
 * CSC Servicedesk for user support
+* CSC Allas Object Storage service
+* CSC Ceph Storage service
 
 ## Support
 
@@ -142,7 +144,7 @@ For escalation and complaints, the defined contact point shall be used, and the 
 CSC has approved a security policy and also follows security best practices. For CSC's customers, partners and staff there are detailed security guidelines. Many items in our security policies and guidelines refer to external compliance requirements. CSC also has procedures for risk and security management. For more information, please refer to:
 
 * [CSC’s Security Policy](https://www.csc.fi/security)
-* [The Rahti documentation](https://rahti.csc.fi)
+* [The Rahti documentation](https://docs.csc.fi/cloud/rahti2/)
 
 The handling of personal information on the Rahti service is described here: https://research.csc.fi/rahti
 
@@ -173,13 +175,13 @@ For the purpose of this SLA, the following terms and definitions apply:
 * *Response time*: Time spent between the arrival of a User's support request and the first response from CSC Staff
 * *Working days*: Monday to Friday (excluding Finnish public holidays)
 * *Working hours*: as defined in customer service opening hours in [CSC's contact information page](https://www.csc.fi/en/contact-info)
-* *Rahti container cloud service ("Rahti")*: a cloud platform that can be used by *Users* to run their own *User Applications*.
-* *Rahti User ("User")*: a user of *Rahti*.
-* *User Application*: an application running in *Rahti* managed by one or more *Users*.
+* *Rahti container cloud service ("Rahti 2")*: a cloud platform that can be used by *Users* to run their own *User Applications*.
+* *Rahti User ("User")*: a user of *Rahti 2*.
+* *User Application*: an application running in *Rahti 2* managed by one or more *Users*.
 
 An extended list of term definitions adopted on this document can be found in the [FitSM-0: Overview and vocabulary document](https://fitsm.itemo.org/wp-content/uploads/sites/3/2018/05/FitSM-0_Overview_and_vocabulary.pdf).
 
 ## Document revision
 
-This document was last updated 30.4.2019
+This document was last updated 30.5.2024
 
