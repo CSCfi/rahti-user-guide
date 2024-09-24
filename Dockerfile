@@ -1,4 +1,4 @@
-FROM almalinux:8
+FROM almalinux:8.9
 
 LABEL maintainer="CSC Rahti Team <rahti-team@postit.csc.fi>"
 
