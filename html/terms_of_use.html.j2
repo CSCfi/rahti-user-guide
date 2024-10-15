@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <title>Rahti</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link rel="stylesheet" href="/static/styles.css">
+    <!-- CSC Design System -->
+    <script src="https://cdn.jsdelivr.net/npm/csc-ui@0.6.77/dist/cscwebcomponents/cscwebcomponents.esm.js" type="module"></script>
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.typekit.net/csv4mjm.css">
+    <link rel="icon" type="image/x-icon" href="/static/CSC_2012_LOGO.png">
+
+  </head>
+  <body>
+
+<c-main>
+  <c-toolbar class="relative"><c-csc-logo></c-csc-logo><a target="_self" href="index.html">Rahti</a></c-toolbar>
+  <c-container class="content">
+    <c-row>
+      <div class="col content-c1">
+        <h2>Terms of use</h2>
+
+        <p>This document describes additional terms and examples specific to the Rahti container cloud service (hereafter referred to as "Rahti"). Please also read the General Terms of Use for CSC's Services for Research and Education. By using Rahti you are agreeing to both.</p>
+
+        <h3>Terminology</h3>
+
+        <ul>
+          <li>User refers to an individual who uses any of the Services referred to in these Terms.</li>
+          <li>CSC Project refers to a group of one or more Users who may be granted access to use CSC's computing, data, and cloud resources up to a certain limit.</li>
+          <li>Service account refers to an digital identity that is used to communicate between Rahti and other services. CSC Project members must follow good security practices with all accounts.</li>
+    <li>User Content (“Content”) means the User's data, software, servers, systems, or processes that use or interact with the Services. </li>
+    </ul>
+
+<h3>Security responsibilities</h3>
+<ul>
+  <li>Users are responsible for the security of their Content. Content hosted in Rahti can be directly connected to the Internet.</li>
+  <li>Users are responsible for managing their access control lists, user accounts and all other access control methods.</li>
+  <li>Users are responsible for maintaining security within the Content they host in Rahti. We recommend applying all applicable security updates automatically or otherwise at regular and well managed intervals.</li>
+    <li>CSC is responsible for maintaining service security according to General Terms of Use for CSC's Services for Research and Education.</li>
+</ul>
+    <h3>Content and data management responsibilities</h3>
+    <ul>
+
+      <li>Users are responsible for the design and architecture of their Content hosted on Rahti.</li>
+      <li>Access to Content is limited to users in CSC Project by default. Users in CSC Project can add and modify access rights on Rahti with their default permissions. These limited access right modification rights have been granted to project members so they can manage project-specific Service accounts.</li>
+      <li>Most Content is not backed up and it is the responsibility of User to manage their own Content.</li>
+      <li>The places where Users can store Content including persistent volumes, container file systems and local storage are not backed up. It is the responsibility of User to make backups of Content as needed.</li>
+      <li>CSC is responsible for managing the Rahti service itself and ensuring the service is available to Users according to Rahti service level agreement.</li>
+    </ul>
+
+<h3>Access to Content</h3>
+
+<p>General Terms of Use for CSC's Services for Research and Education state that CSC can access Content.</p>
+
+<p>For Rahti this means that:</p>
+
+    <ul><li>CSC has the right to scan or monitor Content for security vulnerabilities, violations of our terms of use, or to perform anonymised analysis of workloads, for example by:
+        <ul><li>Scanning of container images for prohibited applications.</li>
+        <li>Scanning the Content running within Rahti.</li></ul></li>
+    <li>CSC has the right to do passive network monitoring for intrusion detection (IDS) purposes. This monitoring can occur without suspicion of intrusion.</li>
+    <li>CSC has the right to disable any or all of a User's Content running in Rahti or network connections to or from Rahti if we suspect an ongoing security violation or a violation of our Terms of Use.</li>
+</ul>
+
+<h3>User risks</h3>
+
+    <ul>
+    <li>Users are responsible for managing their risks and mitigation plans based on these service terms and General Terms of Use for CSC's Services for Research and Education.</li>
+    <li>Individual containers running on Rahti can restart at any time without any uptime guarantees. Users are responsible for designing applications deployments so that they handle common cloud service failures in a graceful manner.</li>
+    <li>As with any cloud service, Content in Rahti and their data can be lost or corrupted due to hardware failure, system error, administrator error or user errors.</li>
+  </ul>
+      </div> 
+    </c-row>
+  </c-container>
+
+        <div class="footer">
+            <c-row>
+              {% include 'footer.html' %}
+            </c-row>
+        </div>
+    </c-main>
+  </body>
+</html>
