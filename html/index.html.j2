@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <title>Rahti</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link rel="stylesheet" href="static/styles.css">
+    <!-- CSC Design System -->
+    <script src="https://cdn.jsdelivr.net/npm/csc-ui@0.6.77/dist/cscwebcomponents/cscwebcomponents.esm.js" type="module"></script>
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.typekit.net/csv4mjm.css">
+    <link rel="icon" type="image/x-icon" href="/static/CSC_2012_LOGO.png">
+  </head>
+  <body>
+    <c-main>
+        <c-toolbar class="relative"><c-csc-logo></c-csc-logo><a target="_self" href="#">Rahti</a></c-toolbar>
+
+        <c-container class="content">
+            <c-row>
+                <div class="col content-c1">
+                    <h2>Welcome to Rahti</h2>
+                    <p>Rahti is a shared general-purpose container service for hosting projects.</p>
+                    <p>Rahti Shared Container Service is based on Kubernetes/OpenShift technology and provides an
+                    environment for hosting general-purpose container workloads. Because the service is shared
+                    between users, there are some permission limitations compared to plain Kubernetes (for example,
+                    container root access and global cluster permissions are not permitted).</p>
+                    <p>Hosted content can be managed using API calls, command line tools, or graphical user interface.
+                    Content in Rahti is stored in Finland. Hosted content can be exposed to public Internet or be
+                    limited to User-defined networks. Rahti service includes default domain names with CSC-maintained
+                    certificates, and network load balancing. Exposed network endpoints can be configured to use
+                    User-maintained external DNS addresses and custom certificates.</p>
+                    <p>The service is offered free of charge to Finnish universities and universities of applied
+                    sciences, research institutes as well as research funded by the Academy of Finland.</p>
+                    <p>Rahti can be used to host project content as long as the CSC project is active. Upon closure
+                    of the project, the content will be handled in accordance with the General Terms of Use for CSC's
+                    Services for Research and Education .</p>
+                    <p>It is the User's responsibility to
+                    ensure Rahti is suitable service for handling project content and technical data protection is done
+                    appropriately.</p>
+                    <p>Content stored in Rahti is not backed up and it is the User's responsibility to make the backups
+                    of the data as needed.</p>
+                </div>
+                <div class="col content-c2">
+                    <h2>Environments</h2>
+                    <c-card class="card-1">
+                        <c-card-title>Rahti-2</c-card-title>
+                        <c-card-content>{{ 'CLUSTER_LANDING_PAGE_ENV_VERSION' | env }}</c-card-content>
+                        <c-card-actions>
+                            <c-button href="{{ 'CLUSTER_LOGIN_URL_OIDCIDP' | env }}">Login page</c-button>
+                        </c-card-actions>
+                    </c-card>
+                    <c-card class="card-2">
+                        <c-card-title>Rahti</c-card-title>
+                        <c-card-content>{{ 'CLUSTER_LANDING_PAGE_SECONDARY_ENV_VERSION' | env }}</c-card-content>
+                        <c-card-actions>
+                            <c-button href="https://rahti.csc.fi:8443/">Login page</c-button>
+                            <c-button href="https://registry-console.rahti.csc.fi/">Registry login</c-button>
+                        </c-card-actions>
+                    </c-card>
+                    <c-card class="card-3">
+                        <c-card-title>News</c-card-title>
+                        <c-card-content>
+                              <p>
+                              Glusterfs storage class was deprecated in Rahti 2. Users should migrate to
+                              alternative storage options (cinder, Allas, or project-specific custom solutions).
+                              </p>
+                              <p>
+                              Rahti 1 service is shutting down on 22.10.2024 - All the existing pods will be
+                              terminated. The resource quotas will be set to zero and users will not be able
+                              to launch new pods or use any resources.
+                              </p>
+                              <p>
+                              Rahti 1 image registry is shutting down on 05.11.2024 - Users will not be able
+                              to pull, push or use images in the registry.
+                             </p>
+                        </c-card-content>
+                    </c-card>
+                </div>
+            </c-row>
+        </c-container>
+
+        <div class="footer">
+            <c-row>
+                {% include 'footer.html' %}
+            </c-row>
+        </div>
+
+    </c-main>
+  </body>
+</html>

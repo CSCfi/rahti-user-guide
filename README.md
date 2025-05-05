@@ -1,75 +1,42 @@
-# Rahti user guide
+# Rahti 2 landing page
 
-The user guide for the Rahti OpenShift systems.
+The landing page for the new version of Rahti system. 
 
-## Editing the documentation
+## Editing the landing  page
 
-The guide is written using the [Markdown markup
-language](https://en.wikipedia.org/wiki/Markdown).
-[MkDocs](http://www.mkdocs.org/) is used to generate static documentation pages
-out of the Markdown files.
+Changes can be made directly to the [html template](html/index.html.j2).
 
-Markdown can be edited using any text editor, but you will need to install
-MkDocs if you wish to preview your changes while editing your documentation. You
-can find installation instructions in the [MkDocs
-documentation](http://www.mkdocs.org/#installation).
 
-Before building the site from the markdown sources, you will need to set some
+Before parsing the template, you will need to set some
 environment variables:
 
-| Variable             | Description                                         |
-|----------------------|-----------------------------------------------------|
-| BILLING_ENABLED      | Whether the system has usage based billing.         |
-| GITLAB_LOGIN_SUPPORT | Whether the system supports GitLab logins.          |
-| LDAP_LOGIN_SUPPORT   | Whether the system supports LDAP logins.            |
-| OPENSHIFT_VERSION    | What version of OpenShift is in use.                |
-| OSO_REGISTRY_URL     | The URL of the OpenShift registry web UI.           |
-| OSO_WEB_UI_URL       | The URL of the OpenShift web UI.                    |
-| SUI_INTEGRATION_DONE | Whether it is possible to apply for access via SUI. |
-| SYSTEM_NAME          | The name of the OpenShift system.                   |
-| SHOW_AGREEMENTS      | Whether to show agreements like the ToU and the SLA.|
+| Variable                                   | Description                                  |
+|--------------------------------------------|----------------------------------------------|
+| CLUSTER_LANDING_PAGE_ENV_VERSION           | Openshift / Kubernetes version in new Rahti. |
+| CLUSTER_LOGIN_URL_OIDCIDP                  | URL to login console of new Rahti.           |
+| CLUSTER_LANDING_PAGE_SECONDARY_ENV_VERSION | Openshift / Kubernetes version in old Rahti. |
+| CLUSTER_LANDING_PAGE_NEWS                  | News to share in the landing page.           |
 
-When these are set in the environment, you can create a config file for mkdocs:
+
+When these are set in the environment, you can generate the html page using:
 
 ```bash
 ./make_config.sh
 ```
 
-Afther doing this, you can start a preview web server from the command line
-while in the root of the project directory:
-
-```bash
-mkdocs serve
-```
-
-This will start a web server on your computer listening on port 8000. Point your
-web server to [localhost:8000](http://localhost:8000) to get a preview of the
-documentation.
-
-The configuration for MkDocs is in the mkdocs.yml file in the root of this
-repository. The name of the documentation site, the structure of the
-documentation pages and the theme to use for the site are described in this
-document.
-
-The documentation files themselves are under the docs directory.
 
 ## Using the included Dockerfile
 
-You can also create a Docker container to host the docs. First build an image
+You can also create a Docker container to host the landing page. First build an image
 from the included Dockerfile, making sure to set all the necessary environment
 variables. For example:
 
 ```bash
 sudo docker build -t rahti-user-guide \
-  --build-arg BILLING_ENABLED=True \
-  --build-arg SYSTEM_NAME=Rahti \
-  --build-arg OSO_WEB_UI_URL=https://rahti.csc.fi:8443 \
-  --build-arg OSO_REGISTRY_URL=https://registry-console.rahti.csc.fi \
-  --build-arg LDAP_LOGIN_SUPPORT=True \
-  --build-arg GITLAB_LOGIN_SUPPORT=0 \
-  --build-arg SUI_INTEGRATION_DONE=True \
-  --build-arg OPENSHIFT_VERSION=3.11 \
-  --build-arg SHOW_AGREEMENTS=True .
+  --build-arg CLUSTER_LANDING_PAGE_ENV_VERSION="OpenShift 4.13 / Kubernetes 1.26" \
+  --build-arg CLUSTER_LOGIN_URL_OIDCIDP="https://console-openshift-console.apps.2.rahti.csc.fi" \
+  --build-arg CLUSTER_LANDING_PAGE_SECONDARY_ENV_VERSION="OpenShift 3.11 / Kubernetes 1.13" \
+  --build-arg CLUSTER_LANDING_PAGE_NEWS="This exciting news to share" .
 ```
 
 Then run the container:
@@ -92,18 +59,13 @@ Then run `oc new-app` to create the user guide deployment:
 
 ```bash
 oc new-app \
-  --build-env BILLING_ENABLED=True \
-  --build-env SYSTEM_NAME=Rahti \
-  --build-env OSO_WEB_UI_URL=https://rahti.csc.fi:8443 \
-  --build-env OSO_REGISTRY_URL=https://registry-console.rahti.csc.fi \
-  --build-env LDAP_LOGIN_SUPPORT=True \
-  --build-env GITLAB_LOGIN_SUPPORT=0 \
-  --build-env SUI_INTEGRATION_DONE=True \
-  --build-env OPENSHIFT_VERSION=3.11 \
-  --build-env SHOW_AGREEMENTS=True .
-  https://github.com/CSCfi/rahti-user-guide.git#master
+  --build-env CLUSTER_LANDING_PAGE_ENV_VERSION="OpenShift 4.13 / Kubernetes 1.26" \
+  --build-env CLUSTER_LOGIN_URL_OIDCIDP="https://console-openshift-console.apps.2.rahti.csc.fi" \
+  --build-env CLUSTER_LANDING_PAGE_SECONDARY_ENV_VERSION="OpenShift 3.11 / Kubernetes 1.13" \
+  --build-env CLUSTER_LANDING_PAGE_NEWS="This exciting news to share" \
+  https://github.com/CSCfi/rahti-user-guide.git#rahti-2-landing
 ```
 
-In the command above, the `#master` at the end specifies the branch to use. If
+In the command above, the `#rahti-2-landing` at the end specifies the branch to use. If
 you have a feature branch that you would like to test on OpenShift, you can
-specify a branch different from master.
+specify a branch different from rahti-2-landing.

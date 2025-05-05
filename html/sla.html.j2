@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta name="generator" content=
+  "HTML Tidy for HTML5 for Linux version 5.6.0">
+  <meta http-equiv="content-type" content=
+  "text/html; charset=utf-8">
+  <title>Rahti</title><!-- Required meta tags -->
+  <meta name="viewport" content=
+  "width=device-width, initial-scale=1, shrink-to-fit=no">
+  <link rel="stylesheet" href="/static/styles.css">
+  <!-- CSC Design System -->
+
+  <script src=
+  "https://cdn.jsdelivr.net/npm/csc-ui@0.6.77/dist/cscwebcomponents/cscwebcomponents.esm.js"
+  type="module"></script><!-- Bootstrap -->
+  <link rel="stylesheet" href=
+  "https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css"
+  integrity=
+  "sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+  crossorigin="anonymous">
+  <link rel="stylesheet" href=
+  "https://use.typekit.net/csv4mjm.css">
+  <link rel="icon" type="image/x-icon" href=
+  "/static/CSC_2012_LOGO.png">
+</head>
+<body>
+  <c-main>
+    <c-toolbar class="relative">
+      <c-csc-logo></c-csc-logo><a target="_self" href=
+      "index.html">Rahti</a>
+    </c-toolbar>
+    <c-container class="content">
+      <c-row>
+        <div class="col content-c1">
+          <h1>Service Level Agreement</h1>
+          <h2>General</h2>
+          <p>This Service Level Agreement (hereafter called "SLA")
+          is made between you (the "User"), Rahti Container Cloud
+          Service ("Rahti") and the service provider, CSC - IT
+          Center for Science Ltd. ("CSC"), to cover the provision
+          and support of the service as described hereafter.
+          Amendments, comments and suggestions must be addressed
+          using the communication channels defined in the section
+          <a href=
+          "#communication-reporting-and-escalation">Communication,
+          reporting and escalation</a>. The service provider
+          retains the right to introduce changes to the service. If
+          the User does not accept the changes, this service
+          subscription can be terminated.</p>
+          <h2>Scope and description of the service</h2>
+          <p>Rahti is a cloud computing service that allows Users
+          to host applications and make them accessible over the
+          web. The Rahti service is based on OKD, which is a
+          distribution of Kubernetes. The main features of Rahti
+          are:</p>
+          <ul>
+            <li>Hosting of containerized applications</li>
+            <li>Storage services</li>
+            <li>Virtual networks for connecting container
+            instances</li>
+            <li>Load balancing of traffic to User Applications</li>
+            <li>An application catalog with templates for
+            ready-to-use common applications</li>
+            <li>Features for replication, rolling updates,
+            auto-recovery and auto-scaling of User
+            Applications</li>
+            <li>BasicG default domain name and TLS for hosted User
+            Applications (under <a href=
+            "http://rahtiapp.fi/">rahtiapp.fi</a>)
+            </li>
+          </ul>
+          <p>Users can manage their resources using a web interface
+          accessible through a web browser and through a set of
+          APIs which allow programmatic management of resources. In
+          order to access and use the service the User must have a
+          CSC user account.</p>
+          <p>The User's applications are isolated from other Users’
+          applications from a network, storage and computational
+          view.</p>
+          <h2>Service hours & exceptions</h2>
+          <p>The service is designed to run continuously. However,
+          the following exceptions apply:</p>
+          <ul>
+            <li>Planned service breaks - announced to Users at
+            least three weeks in advance.</li>
+            <li>Downtimes caused due to upgrades for fixing
+            critical security issues are not considered SLA
+            violations. In the case of critical security upgrades
+            CSC reserves the right to apply the upgrades with
+            minimal notice.</li>
+            <li>Any other causes outside the service provider’s
+            direct control.</li>
+          </ul>
+          <h2>Service components & dependencies</h2>
+          <p>The Rahti service depends on the following
+          services:</p>
+          <ul>
+            <li>Kajaani datacenter infrastructure</li>
+            <li>Funet network</li>
+            <li>The cPouta service</li>
+            <li>CSC user administration</li>
+            <li>CSC Servicedesk for user support</li>
+          </ul>
+          <h2>Support</h2>
+          <p>Support for the services covered by the scope of this
+          SLA are provided through CSC Service Desk channels and
+          under CSC Service Desk policies:</p>
+          <div class="wy-table-responsive">
+            <table class="docutils">
+              <thead>
+                <tr>
+                  <th>CSC Service Desk</th>
+                  <th></th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Operating hours</td>
+                  <td>
+                    Mon-Fri (excluding Finnish public holidays),
+                    see <a href=
+                    "https://www.csc.fi/en/contact-info">CSC's
+                    contact information page</a>
+                  </td>
+                </tr>
+                <tr>
+                  <td>Phone</td>
+                  <td>&nbsp;+358 (0) 94 57 2821</td>
+                </tr>
+                <tr>
+                  <td>Email</td>
+                  <td>servicedesk@csc.fi</td>
+                </tr>
+                <tr>
+                  <td>Webpage and contact form</td>
+                  <td>
+                    <a href=
+                    "https://research.csc.fi/cloud-computing">https://research.csc.fi/cloud-computing</a>
+                    <a href=
+                    "https://research.csc.fi/support">https://research.csc.fi/support</a>
+                  </td>
+                </tr>
+                <tr>
+                  <td>Response time target</td>
+                  <td>Within three working days</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <h3>Incident handling</h3>
+          <p>Disruptions to the agreed service functionality or
+          quality will be handled according to an appropriate
+          priority based on the impact and urgency of the incident.
+          In this context, the following general priority
+          guidelines apply:</p>
+          <ol>
+            <li>Ensuring normal levels of security</li>
+            <li>Restoring normal service operation</li>
+            <li>Restoring User Applications where possible</li>
+          </ol>
+          <p>Response and resolution times are provided as <a href=
+          "#service-level-targets">Service level targets</a>.</p>
+          <h3>Fulfilment of service requests</h3>
+          <p>In addition to resolving incidents, the following
+          standard service requests are defined and will be
+          fulfilled through the defined support channels:</p>
+          <ul>
+            <li>Issues regarding CSC’s identity management
+            service</li>
+            <li>Issues using this service’s web interface</li>
+            <li>Issues using the provided APIs</li>
+            <li>Issues deploying applications</li>
+            <li>Issues using application templates</li>
+            <li>Changes to quotas</li>
+          </ul>
+          <p>Response and fulfilment times are provided as <a href=
+          "#service-level-targets">Service level targets</a>.</p>
+          <h2>Service level targets</h2>
+          <p>The Rahti service level targets adhere to JHS 174 as
+          follows:</p>
+          <div class="wy-table-responsive">
+            <table class="docutils">
+              <thead>
+                <tr>
+                  <th>Service level targets</th>
+                  <th></th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Service Level</td>
+                  <td>A (basic)</td>
+                </tr>
+                <tr>
+                  <td>Service time / incident handling</td>
+                  <td>P1 Weekdays 8.00-16.00</td>
+                </tr>
+                <tr>
+                  <td>Availability</td>
+                  <td>K1 97%</td>
+                </tr>
+                <tr>
+                  <td>Response</td>
+                  <td>V1 reaction: 4h, solution: 2 BD</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <p>Availability is calculated by subtracting the service
+          break time from the ideal availability during service
+          time. This information is obtained from internal
+          monitoring systems and defined as Users’ ability to
+          manage their User Applications, and the availability of
+          the User Applications.</p>
+          <p>The normal functioning of the service is defined
+          as:</p>
+          <ul>
+            <li>the ability to launch new User Applications.</li>
+            <li>the availablility and integrity of the storage
+            services.</li>
+            <li>the functioning of the network, and the
+            accessibility of User Applications.</li>
+            <li>the functioning of replication, auto-recovery and
+            auto-scaling of User Applications.</li>
+          </ul>
+          <p>The Service Provider commits to inform the User if
+          this SLA is violated or a violation is anticipated. For
+          this, email as a communication channel will be used.</p>
+          <p>A User contacts the CSC Service Desk for the case of a
+          possible SLA violation. The case will be analysed
+          internally and, if the violation is confirmed, CSC will
+          inform the User about the reasons for the violation,
+          planned mitigation actions and expected resolution
+          time.</p>
+          <h2 id="limitations-and-constraints">Limitations and
+          constraints</h2>
+          <p>The provisioning of the service under the agreed
+          service level targets is subject to the following
+          limitations and constraints:</p>
+          <ul>
+            <li>Support is provided primarily in English and
+            Finnish.</li>
+            <li>A technical failure which affects individual Users
+            does not count as downtime.</li>
+            <li>Failures of single container instances is expected
+            behaviour and do not count as downtime.</li>
+          </ul>
+          <h2 id="communication-reporting-and-escalation">
+          Communication, reporting and escalation</h2>
+          <h3>General communication</h3>
+          <p>The following contacts will be generally used for
+          communications related to the service in the scope of
+          this SLA:</p>
+          <div class="wy-table-responsive">
+            <table class="docutils">
+              <thead>
+                <tr>
+                  <th>Communication channels</th>
+                  <th></th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Contact for Users</td>
+                  <td>
+                    <a href=
+                    "mailto:servicedesk@csc.fi">servicedesk@csc.fi</a>
+                  </td>
+                </tr>
+                <tr>
+                  <td>Security incident reporting</td>
+                  <td>(CSC’s Head of Security) security@csc.fi +358
+                  (0) 94 57 2253</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <h3>Reporting</h3>
+          <p>Service reports regarding availability will be
+          available from the servicedesk by request. The
+          information provided will be limited to service
+          availability and by data security and privacy
+          constraints.</p>
+          <h3>Escalation and complaints</h3>
+          <p>For escalation and complaints, the defined contact
+          point shall be used, and the following rules apply:</p>
+          <ol>
+            <li>First contact shall be established, preferably by
+            email, to Contact for Users address (See section
+            <a href=
+            "#communication-reporting-and-escalation">Communication,
+            reporting and escalation</a>) explaining the reason for
+            the complaint with a sensible level of detail and
+            clarity. Please also include, if possible, the
+            following information:
+              <ul>
+                <li>Name of the service</li>
+                <li>Date and time of the events</li>
+                <li>Usernames of affected Users</li>
+                <li>Channel to use on following communications (if
+                other is preferred)</li>
+              </ul>
+            </li>
+            <li>CSC Service Desk will contact you within three
+            working days with information about the incident and
+            which procedures will be adopted.</li>
+          </ol>
+          <h2 id="information-security--data-protection">
+          Information security & data protection</h2>
+          <p>CSC has approved a security policy and also follows
+          security best practices. For CSC's customers, partners
+          and staff there are detailed security guidelines. Many
+          items in our security policies and guidelines refer to
+          external compliance requirements. CSC also has procedures
+          for risk and security management. For more information,
+          please refer to:</p>
+          <ul>
+            <li>
+              <a href="https://www.csc.fi/security">CSC’s Security
+              Policy</a>
+            </li>
+            <li>
+              <a href="https://docs.csc.fi/cloud/rahti2/">The Rahti
+              documentation</a>
+            </li>
+          </ul>
+          <p>The handling of personal information on the Rahti
+          service is described here: <a href=
+          "https://research.csc.fi/rahti">https://research.csc.fi/rahti</a></p>
+          <h2>Additional responsibilities of the Service
+          Provider</h2>
+          <p>Additional responsibilities of the Service Provider
+          are as follows:</p>
+          <ul>
+            <li>Adhere to all applicable operational and security
+            policies and procedures defined in CSC’s Security
+            Policy (<a href=
+            "#information-security--data-protection">Information
+            security & data protection</a>) and to other policy
+            documents referenced therein.
+            </li>
+            <li>Use communication channels defined in the
+            agreement.</li>
+            <li>Provide monitoring data to measure fulfillment of
+            agreed service level targets.</li>
+          </ul>
+          <h2>User responsibilities</h2>
+          <p>The User agrees to follow the <a href=
+          "https://www.csc.fi/general-terms-of-use">General Terms
+          of Use for CSC's Services for Research</a>, <a href=
+          "/agreements/terms_of_use/">User policy and terms of use
+          for the Rahti container cloud service</a> and <a href=
+          "http://www.csc.fi/security">CSC’s Security
+          Policy</a>.</p>
+          <h2 id="review">Review</h2>
+          <p>There will be reviews of the service performance
+          against service level targets and of this SLA at planned
+          intervals according to the following rules:</p>
+          <ul>
+            <li>Annual reviews are done internally and based on
+            User feedback.</li>
+            <li>Major changes to the service may trigger a
+            review.</li>
+          </ul>
+          <h2>Glossary of terms</h2>
+          <p>For the purpose of this SLA, the following terms and
+          definitions apply:</p>
+          <ul>
+            <li><em>SLA</em>: Service Level Agreement (this
+            document)</li>
+            <li><em>Response time</em>: Time spent between the
+            arrival of a User's support request and the first
+            response from CSC Staff</li>
+            <li><em>Working days</em>: Monday to Friday (excluding
+            Finnish public holidays)</li>
+            <li>
+              <em>Working hours</em>: as defined in customer
+              service opening hours in <a href=
+              "https://www.csc.fi/en/contact-info">CSC's contact
+              information page</a>
+            </li>
+            <li><em>Rahti container cloud service ("Rahti")</em>: a
+            cloud platform that can be used by <em>Users</em> to
+            run their own <em>User Applications</em>.</li>
+            <li><em>Rahti User ("User")</em>: a user of
+            <em>Rahti</em>.</li>
+            <li><em>User Application</em>: an application running
+            in <em>Rahti</em> managed by one or more
+            <em>Users</em>.</li>
+          </ul>
+          <p>An extended list of term definitions adopted on this
+          document can be found in the <a href=
+          "https://fitsm.itemo.org/wp-content/uploads/sites/3/2018/05/FitSM-0_Overview_and_vocabulary.pdf">
+          FitSM-0: Overview and vocabulary document</a>.</p>
+          <h2>Document revision</h2>
+          <p>This document was last updated 30.4.2019</p>
+        </div>
+      </c-row>
+    </c-container>
+    <div class="footer">
+      <c-row>
+        {% include 'footer.html' %}
+      </c-row>
+    </div>
+  </c-main>
+</body>
+</html>

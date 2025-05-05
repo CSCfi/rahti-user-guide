@@ -1,0 +1,24 @@
+c-main.hydrated {
+    background-color: white;
+}
+
+.content {
+    padding-top: 24px;
+    padding-bottom: 24px;
+}
+
+.c-card {
+    margin: 10px 0;
+}
+
+.footer {
+    width: 100%;
+    height: auto;
+    padding: 1rem 4rem 2rem 4rem!important;
+    flex-shrink: 0;
+    box-shadow: 0 -3px 5px #efeFEFEB;
+}
+
+.footer a {
+    color: #595959;
+}
